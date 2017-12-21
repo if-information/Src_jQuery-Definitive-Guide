@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.param()进行数组元素序列化</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:260px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var arrInfo = { id: 101, name: "tao", sex: 0 }; //基本信息数组
+            //分数和汇总信息数组
+            var arrScore = { Score: { chinese: 90, maths: 100, english: 98 },
+                SunNum: { Score: 288, Num: 3 }
+            };
+            //序列化各数组
+            var arrNewInfo = $.param(arrInfo);
+            var arrNewScore = $.param(arrScore);
+            var arrDecScore = decodeURIComponent($.param(arrScore));
+            //显示序列化后的数组
+            var strTmp = "<b>arrInfo数组序列化后</b>：";
+            strTmp += arrNewInfo;
+            strTmp += "<br><br><b>arrScore数组序列化后</b>：";
+            strTmp += arrNewScore;
+            strTmp += "<br><br><b>arrScore序列化解码后</b>：";
+            strTmp += arrDecScore;
+            //显示在页面中
+            $("#divTip").append(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

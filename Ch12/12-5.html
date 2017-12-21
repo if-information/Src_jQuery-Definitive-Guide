@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用data()方法在元素上存取普通数据</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("p").data("tmpData"); //初始时
+            //显示初始化数据
+            $("#divTip").append($("p").data("tmpData") == null ?
+            "初始时：null" : $("p").data("tmpData")); 
+            $("p").data("tmpData", "陶国荣") //设置
+            //显示设置后数据
+            $("#divTip").append("<br>赋值后：" + $("p").data("tmpData"));
+            $("p").removeData("tmpData") //移除
+            //显示移除后数据
+            $("#divTip").append($("p").data("tmpData") == null ?
+            "<br>移除时：null" : $("p").data("tmpData"));
+        })
+    </script>
+</head>
+<body>
+    <p><b>数据状态</b></p>
+    <div id="divTip"></div>
+</body>
+</html>

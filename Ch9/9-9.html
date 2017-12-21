@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用嵌套菜单展示多项列表</title>
+    <link href="Css/jquery-ui-1.9.2.custom.min.css" 
+          rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body{font-size:13px;}
+        .ui-menu{width:200px;}
+    </style>
+    <script type="text/javascript" 
+          src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+         src="Jscript/jquery-ui.js">
+    </script>
+    <script>
+        $(function() {
+            $("#menu").menu();
+        }); 
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li style="padding: 10px">
+            <img alt="" src="Images/icon.gif" />
+            <span>电脑数码类产品</span></li>
+        <li><a href="#"><span class="ui-icon ui-icon-note"></span>笔记本</a>
+            <ul>
+                <li><a href="#">笔记本1</a></li>
+                <li><a href="#">笔记本2</a></li>
+                <li><a href="#">笔记本3</a></li>
+                <li><a href="#">笔记本4</a></li>
+                <li><a href="#">笔记本5</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><span class="ui-icon ui-icon-disk"></span>移动硬盘</a>
+            <ul>
+                <li><a href="#"><span class="ui-icon ui-icon-disk"></span>移动硬盘1</a></li>
+                <li><a href="#">移动硬盘2</a></li>
+                <li><a href="#">移动硬盘3</a></li>
+                <li><a href="#">移动硬盘4</a></li>
+                <li><a href="#">移动硬盘5</a></li>
+            </ul>
+        </li>
+        <li><a href="#">电脑软件</a>
+            <ul>
+                <li><a href="#">电脑软件1</a></li>
+                <li><a href="#">电脑软件2</a></li>
+                <li><a href="#">电脑软件3</a></li>
+                <li><a href="#">电脑软件4</a></li>
+                <li><a href="#">电脑软件5</a></li>
+            </ul>
+        </li>
+        <li><a href="#">数码产品</a>
+            <ul>
+                <li><a href="#">数码产品1</a></li>
+                <li><a href="#">数码产品2</a></li>
+                <li><a href="#">数码产品3</a></li>
+                <li><a href="#">数码产品4</a></li>
+                <li><a href="#">数码产品5</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

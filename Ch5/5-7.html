@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>fadeTo()方法</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           .divFrame{border:solid 1px #666;width:197px;text-align:center;}
+           .divFrame .divTitle{background-color:#eee;padding:5px 0px 5px 0px}
+           .divFrame .divContent{padding:5px 0px 5px 0px}
+           .divFrame .divContent img{border:solid 1px #eee;padding:2px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var $img = $("img"); //获取图片元素对象
+            var $sel = $("select");//获取下拉列表框对象
+            $sel.change(function() { //下拉列表框选项改变事件
+                var fltValue = $sel.val(); //获取选中的值
+                $img.fadeTo(3000, fltValue); //改变图片的透明度
+            })
+        })
+    </script>
+</head>
+<body>
+     <div class="divFrame">
+           <div class="divTitle">
+               <select id="Select1">
+                   <option value="0.2">0.2</option>
+                   <option value="0.4">0.4</option>
+                   <option value="0.6">0.6</option>
+                   <option value="0.8">0.8</option>
+                   <option value="1.0" selected="selected">1.0</option>
+               </select>
+           </div>
+           <div class="divContent">
+               <img src="Images/img06.jpg" alt="" title="风景图片" />
+           </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>列表框中事件应用</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .clsInit{width:435px;height:35px;line-height:35px;padding-left:10px} 
+           .clsTip{padding-top:5px;background-color:#eee;display:none} 
+           .btn {border:#666 1px solid;padding:2px;width:65px;float:right;margin-top:6px;margin-right:6px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style> 
+  <script type="text/javascript">
+      $(function() {
+          function objInit(obj) {//下拉列表框初始化
+              return $(obj).html("<option>请选择</option>");
+          }
+          var arrData = { //定义一个数组保存相关数据
+              厂商1: { 品牌1_1: "型号1_1_1,型号1_1_2", 品牌1_2: "型号1_2_1,型号1_2_2" },
+              厂商2: { 品牌2_1: "型号2_1_1,型号2_1_2", 品牌2_2: "型号2_2_1,型号2_2_2" },
+              厂商3: { 品牌3_1: "型号3_1_1,型号3_1_2", 品牌3_2: "型号3_2_1,型号3_2_2" }
+          };
+
+          $.each(arrData, function(pF) { //遍历数据增加厂商项
+              $("#selF").append("<option>" + pF + "</option>");
+          });
+
+          $("#selF").change(function() { //厂商列表框选项改变事件
+              objInit("#selT");
+              objInit("#selC");
+
+              $.each(arrData, function(pF, pS) {
+                  if ($("#selF option:selected").text() == pF) { //如果厂商选中项与数据匹配
+
+                      $.each(pS, function(pT, pC) { //遍历数据增加品牌项
+                          $("#selT").append("<option>" + pT + "</option>");
+                      });
+
+                      $("#selT").change(function() { //品牌列表框选项改变事件
+                          objInit("#selC");
+                          $.each(pS, function(pT, pC) {
+
+                              if ($("#selT option:selected").text() == pT) { //如果品牌选中项与数据匹配
+
+                                  $.each(pC.split(","), function() { //遍历数据增加型号项
+                                      $("#selC").append("<option>" + this + "</option>");
+                                  });
+                              }
+                          });
+                      });
+
+                  }
+              });
+          });
+
+          $("#Button1").click(function() { //注册按钮单击事件
+              var strValue = "您选择的厂商:";
+              strValue += $("#selF option:selected").text();
+              strValue += "&nbsp;您选择的品牌:";
+              strValue += $("#selT option:selected").text();
+              strValue += "&nbsp;您选择的型号:";
+              strValue += $("#selC option:selected").text();
+              $("#divTip")
+              .show()
+              .addClass("clsTip")
+              .html(strValue); //显示提示信息并增加样式
+          });
+      })
+       </script> 
+</head>
+<body>
+     <div class="clsInit">
+       厂商：<select id="selF"><option>请选择</option></select>  
+       品牌：<select id="selT"><option>请选择</option></select>  
+       型号：<select id="selC"><option>请选择</option></select> 
+       <input id="Button1" type="button" value="查询" class="btn" />
+    </div> 
+    <div class="clsInit" id="divTip"></div>
+</body>
+</html>

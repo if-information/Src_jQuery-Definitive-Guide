@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用工具提示插件显示列表项的图片</title> 
+    <link href="Css/jquery-ui-1.9.2.custom.min.css" 
+          rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #frame{width:290px;font-size:13px;border:solid 1px #ccc}
+        #frame .title{padding:5px;background-color:#eee;font-size:14px}
+        #frame .content{padding:10px 10px}
+        #frame .content ul{list-style-type:none;line-height:1.8em;padding:0;margin:0px}
+        #frame .content .spanT{width:210px;float:left;font-weight:bold}
+        #frame .content .spanL{width:210px;float:left}
+    </style>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Jscript/jquery-ui.js">
+    </script>
+    <script>
+        //定义数据保存图片路径
+        var arrImg = new Array("Images/img04.jpg", "Images/img05.jpg", "Images/img06.jpg");　
+        $(function() {
+            //遍历所有列表选项
+            $(".spanL").each(function(index) {
+                //增加title属性
+                $(this).attr("title", "<img src='" + arrImg[index] + "'></img>");
+                $(this).tooltip({ position: { my: "left+100"} });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="frame">
+        <div class="title">
+            本人部分作品集</div>
+        <div class="content">
+            <ul>
+                <li><span class="spanT">书名</span>
+                    <span><b>出版时间</b></span>
+                </li>
+                <li><span class="spanL"><a href="javascript:">jQuery 权威指南</a></span>
+                    <span>2011.5</span>
+                </li>
+                <li><span class="spanL"><a href="javascript:">HTML 5实战</a></span>
+                    <span>2012.1</span>
+                </li>
+                <li><span class="spanL"><a href="javascript:">jQuery Mobile 权威指南</a></span>
+                    <span>2012.8</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

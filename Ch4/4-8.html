@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>其他事件trigger</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+            body{font-size:13px} 
+           .txt{border:#666 1px solid;padding:3px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var oTxt = $("input"); //获取文本框
+            oTxt.trigger("select"); //自动选中文本框
+            oTxt.bind("btn_Click", function() {//编写文本框自定义事件
+                var txt = $(this).val(); //获取自身内容
+                $("#divTip").html(txt); //显示在页面中
+            })
+            oTxt.trigger("btn_Click"); //自动触发自定义事件
+        })
+    </script>
+</head>
+<body>
+    姓名：<input id="Text1" type="text" class="txt"  value="陶国荣" />
+          <div id="divTip" style="padding-top:5px"></div>
+</body>
+</html> 

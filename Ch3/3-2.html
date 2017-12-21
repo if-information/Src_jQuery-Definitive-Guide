@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>获取元素的属性</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px}
+           div{float:left;padding-left:10px}
+           img{border:solid 1px #ccc;padding:3px;float:left}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var strAlt = $("img").attr("src"); //属性值一
+            strAlt += "<br/><br/>" + $("img").attr("title"); //属性值二
+            $("#divAlt").html(strAlt);
+        })
+    </script>
+</head>
+<body>
+     <img alt="" title="这是一幅风景画" 
+          src="Images/img01.jpg" />
+     <div id="divAlt"></div>
+</body>
+</html>

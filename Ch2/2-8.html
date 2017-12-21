@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用jQuery内容过滤选择器</title>
+    <script language="javascript" type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           div{float:left;border:solid 1px #ccc;margin:8px;width:65px;height:65px;display:none}
+           span{float:left;border:solid 1px #ccc;margin:8px;width:45px;height:45px;background-color:#eee}
+    </style>
+    <script type="text/javascript">
+            $(function(){ //显示包含给定文本的元素
+              $("div:contains('A')").css("display","block");
+            })
+            $(function(){ //显示所有不包含子元素或者文本的空元素
+              $("div:empty").css("display","block");
+            })
+            $(function(){ //显示含有选择器所匹配的元素的元素
+              $("div:has(span)").css("display","block");
+            })
+            $(function(){ //显示含有子元素或者文本的元素
+              $("div:parent").css("display","block");
+            })
+    </script>
+</head>
+<body>
+    <div>ABCD</div>
+    <div><span></span></div>
+    <div>EFaH</div>
+    <div></div>
+</body>
+</html>

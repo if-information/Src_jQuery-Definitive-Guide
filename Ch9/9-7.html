@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>使用tabs插件展示选项卡的基本功能</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <link rel="stylesheet" type="text/css" 
+            href="Css-Pub/ui.all.css" />
+	<script type="text/javascript" 
+	        src="Js-Pub/jquery.ui.core.js">
+	</script>
+	<script type="text/javascript" 
+	        src="Js-Pub/jquery.ui.widget.js">
+	</script>
+	<script type="text/javascript" 
+	        src="Js-9-7/jquery.ui.tabs.js">
+	</script>
+    <link rel="stylesheet" type="text/css" 
+            href="Css-Pub/demos.css" />
+	<script type="text/javascript">
+	    $(function() {
+	        $("#tabs").tabs({
+	            //设置各选项卡在切换时的动画效果
+	            fx: { opacity: "toggle", height: "toggle" },
+	            //通过移动鼠标事件切换选项卡
+	            event: "mousemove"
+	        })
+	        $("#tabs").tabs("url", 2, "9-1.html");
+	        $("#tabs").tabs('add', "9-1.html", "four");
+	        $("#tabs").tabs('remove', 2);
+	    })
+	</script>
+</head>
+<body>
+<div class="demo-description">
+     <div id="tabs" style="width:360px">
+	<ul>
+		<li><a href="#tabs-1">One</a></li>
+		<li><a href="#tabs-2">Two</a></li>
+		<!--第三个选项卡的内容为ajax方法获取的静态页-->
+		<li><a href="Ajax-9-7/Content3.html">Three</a></li>
+	</ul>
+	<div id="tabs-1">
+		<p>One 选项卡中的内容</p>
+	</div>
+	<div id="tabs-2">
+		<p>Two 选项卡中的内容</p>
+	</div>
+</div>
+
+</div>
+</body>
+</html>

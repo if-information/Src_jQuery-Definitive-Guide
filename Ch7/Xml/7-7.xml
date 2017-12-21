@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Info>
+  <User grade="980886">
+    <id>1001</id>
+    <name>陶国荣</name>
+    <sex>男</sex>
+    <email>tao_guo_rong@163.com</email>
+  </User>
+  <User grade="980886">
+    <id>1002</id>
+    <name>李建洲</name>
+    <sex>女</sex>
+    <email>xiaoli@163.com</email>
+  </User>
+  <User grade="980666">
+    <id>1004</id>
+    <name>陈小燕</name>
+    <sex>女</sex>
+    <email>xiaoyan@163.com</email>
+  </User>
+</Info>

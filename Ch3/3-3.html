@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置元素的属性</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px}
+           .clsSpn{float:left;padding-top:10px;padding-left:10px}
+           .clsImg{border:solid 1px #ccc;padding:3px;float:left}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("img").attr("src", "Images/img01.jpg");//设置src属性
+            $("img").attr("title", "这是一幅风景画");//设置title属性
+            $("img").attr({ src: "Images/img02.jpg", title: "这是一幅风景画" });//同时设置二个属性
+            $("img").addClass("clsImg");//增加样式
+            $("span").html("加载完毕");//显示加载状态
+        })
+    </script>
+</head>
+<body>
+     <img alt="" src="Images/img03.gif" style="float:left" />
+     <span class="clsSpn">正在加载图片...</span>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.each()工具函数遍历ajaxSettings对象</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           ul{padding:0px;margin:0px;list-style-type:none;
+              width:350px;border-top:dashed 1px #ccc;
+              border-left:dashed 1px #ccc;border-right:dashed 1px #ccc}
+           ul li{border-bottom:dashed 1px #ccc;padding:8px}
+           .title{background-color:#eee; font-weight:bold}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var strContent = "<li class='title'>属性：值</li>";
+            $.each($.ajaxSettings, function(Property, Value) {
+            strContent += "<li>" + Property + "：" + Value + "</li>";
+            })
+            $("ul").append(strContent);
+        })
+    </script>
+</head>
+<body>
+    <ul></ul>
+</body>
+</html>

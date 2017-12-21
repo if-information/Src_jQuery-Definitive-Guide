@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用sortable插件实现列表中表项的拖曳排序操作</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.core.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.widget.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.mouse.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-9-3/jquery.ui.sortable.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           ul{padding:0px;margin:0px;list-style-type:none;width:260px}
+           ul li{margin: 0 3px 3px 3px;border:solid 1px #ccc;
+                 background-color:#eee;padding:0.4em;cursor:move;
+                 font-size: 1.4em;height: 18px;}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("ul").sortable(
+        { delay: 2, //为防与点击事件冲突，延时2秒
+            opacity: 0.35 //以透明度0.35随意拖动
+        })
+        });
+    </script>
+</head>
+<body>
+     <div>
+       <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+       </ul>
+     </div>
+</body>
+</html>

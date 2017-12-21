@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>$.ajax()方法发送请求</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:225px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;height:23px}
+           .divFrame .divTitle span{float:left;padding:2px;padding-top:5px;}
+           .divFrame .divContent{padding:8px;text-align:center}
+           .divFrame .divContent .clsShow{font-size:14px;line-height:2.0em}
+           .divFrame .divContent .clsShow .clsError{font-size:13px;border:solid 1px #cc3300;padding:2px;display:none;margin-bottom:5px;background-color:#ffe0a3}
+           .txt{border:#666 1px solid;padding:2px;width:150px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:50px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $.ajax({ //请求登录页
+                url: "login.html", //登录静态页
+                dataType: "html",
+                success: function(HTML) { //返回页面内容
+                    $("#frmUserLogin").html(HTML); //将页面内容置入表单
+                    $("#btnLogin").click(function() { //“登录”按钮单击事件
+                        //获取用户名称
+                        var strTxtName = encodeURI($("#txtName").val());
+                        //获取输入密码
+                        var strTxtPass = encodeURI($("#txtPass").val());
+                        //开始发送数据
+                        $.ajax({ //请求登录处理页
+                            url: "login.aspx", //登录处理页
+                            dataType: "html",
+                            //传送请求数据
+                            data: { txtName: strTxtName, txtPass: strTxtPass },
+                            success: function(strValue) { //登录成功后返回的数据
+                                //根据返回值进行状态显示
+                                if (strValue == "True") {
+                                    $(".clsShow").html("操作提示，登录成功！");
+                                }
+                                else {
+                                    $("#divError").show().html("用户名或密码错误！");
+                                }
+                            }
+                        })
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+  <form id="frmUserLogin"></form>
+</body>
+</html>

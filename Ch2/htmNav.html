@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>导航条在项目中的应用</title>
+    <script language="javascript" type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js"></script>
+    <style>
+         body{font-size:13px}
+         #divFrame{border:solid 1px #666;width:301px;overflow:hidden}
+         #divFrame .clsHead{background-color:#eee;padding:8px;height:18px;cursor:hand}
+         #divFrame .clsHead h3{padding:0px;margin:0px;float:left}
+         #divFrame .clsHead span{float:right;margin-top:3px}
+         #divFrame .clsContent{padding:8px}
+         #divFrame .clsContent ul {list-style-type:none;margin:0px;padding:0px}
+         #divFrame .clsContent ul li{ float:left;width:95px;height:23px;line-height:23px}
+         #divFrame .clsBot{float:right;padding-top:5px;padding-bottom:5px}
+         .GetFocus{background-color:#eee}
+    </style>
+    <script type="text/javascript">
+            $(function(){ //页面加载事件
+              $(".clsHead").click(function(){ //图片点击事件
+                if($(".clsContent").is(":visible")){ //如果内容可见
+                   $(".clsHead span img").attr("src","Images/a1.gif"); //改变图片
+                   $(".clsContent").css("display","none"); //隐藏内容 
+                }else{
+                   $(".clsHead span img").attr("src","Images/a2.gif"); //改变图片
+                   $(".clsContent").css("display","block");//显示内容
+                }
+              });
+                
+              $(".clsBot > a").click(function(){ //热点链接点击事件
+                if($(".clsBot > a").text()=="简化"){ //如果内容为'简化'字样
+                   $("ul li:gt(4):not(:last)").hide(); //隐藏index号大于4且不是最后一项的元素
+                   $(".clsBot > a").text("更多"); //将字符内容更改为"更多"
+                }else{
+                   $("ul li:gt(4):not(:last)").show().addClass("GetFocus"); //显示所选元素且增加样式
+                   $(".clsBot > a").text("简化"); //将字符内容更改为"简化"
+                }
+              });  
+            });
+    </script>
+</head>
+<body>
+     <div id="divFrame">
+         <div class="clsHead">
+              <h3>图书分类</h3>
+              <span><img src="Images/a2.gif" alt=""/></span>
+         </div>
+         <div class="clsContent">
+          <ul>
+             <li><a href="#">小说</a><i> ( 1110 ) </i></li>
+             <li><a href="#">文艺</a><i> ( 230 ) </i></li>
+             <li><a href="#">青春</a><i> ( 1430 ) </i></li>
+             <li><a href="#">少儿</a><i> ( 1560 ) </i></li>
+             <li><a href="#">生活</a><i> ( 870 ) </i></li>
+             <li><a href="#">社科</a><i> ( 1460 ) </i></li>
+             <li><a href="#">管理</a><i> ( 1450 ) </i></li>
+             <li><a href="#">计算机</a><i> ( 1780 ) </i></li>
+             <li><a href="#">教育</a><i> ( 930 ) </i></li>
+             <li><a href="#">工具书</a><i> ( 3450 ) </i></li>
+             <li><a href="#">引进版</a><i> ( 980 ) </i></li>
+             <li><a href="#">其它类</a><i> ( 3230 ) </i></li>
+          </ul>
+         <div class="clsBot"><a href="#">简化</a><img src="Images/a5.gif" alt=""/></div>
+         </div>
+     </div>
+</body>
+</html>

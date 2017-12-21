@@ -1,0 +1,108 @@
+﻿body 
+{
+	text-align:center; 
+	font-size:13px
+}
+ul 
+{
+	list-style-type:none; 
+	padding:0px; 
+	margin:0px
+}
+ul li 
+{
+	float:left
+}
+video 
+{
+	width:494px;
+	padding:3px 3px 0px 3px
+}
+canvas
+{
+	width:245px;
+	height:185px;
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+#tip
+{
+	position:absolute; 
+	top:25px;
+	padding-left:20px;
+	color:#fff
+}
+#indexvideo 
+{
+	margin:0 auto;
+	width:500px;
+	background-color:#eaeaea; 
+	border:solid 1px #666
+}
+#indexnav .focus
+{
+	border:solid 1px #666
+}
+#indexnav 
+{
+	height:35px; 
+	line-height:35px
+}
+#indexnav input
+{
+	border:none;
+	cursor:pointer;
+	width:16px;
+	height:16px
+}
+#indexnav .btn-slow 
+{
+	width:50px;
+	background: url(icons/playback_slow.png) no-repeat center center;
+}
+#indexnav .btn-play 
+{
+	width:50px;
+	background: url(icons/playback_play.png) no-repeat center center;
+}
+#indexnav .btn-pause 
+{
+	width:50px;
+	background: url(icons/playback_pause1.png) no-repeat center center;
+}
+#indexnav .btn-quick
+{
+	width:50px;
+	background: url(icons/playback_quick.png) no-repeat center center;
+}
+#indexnav .btn-return 
+{
+	width:50px;
+	background: url(icons/playback_return.png) no-repeat center center;
+}
+#indexnav .btn-volume-max 
+{
+	margin-left:50px;
+	width:22px;
+	height:22px;
+	background: url(icons/sound_max.png) no-repeat center center;
+}
+#indexnav .btn-volume-rng 
+{
+	margin-top:9px;
+	width:100px
+}
+#indexnav .btn-volume-min 
+{
+	margin-right:50px;
+	width:22px;
+	height:22px;
+	background: url(icons/sound_min.png) no-repeat center center;
+}
+#indexnav .btn-pic 
+{
+	width:22px;
+	background: url(icons/playback_pic.png) no-repeat center center;
+}
+

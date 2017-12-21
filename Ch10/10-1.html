@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用browser对象获取浏览器信息</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:300px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var strTmp = "您的浏览器名称是：";
+            if ($.browser.msie) { //IE浏览器
+                strTmp += "IE";
+            }
+            if ($.browser.mozilla) { //火狐相关浏览器
+                strTmp += "Mozilla FireFox";
+            }
+            strTmp += " 版本号是：" //获取版本号
+                   + $.browser.version;
+            $("#divTip").html(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

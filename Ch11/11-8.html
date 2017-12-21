@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery集合处理功能</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           #tbStu{width:260px;border:solid 1px #666;background-color:#eee}
+           #tbStu tr{line-height:23px}
+           #tbStu tr th{background-color:#ccc;color:#fff}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("tr:not(:first)").each(function(i) {
+                this.style.fontSize = ['13px', '14px', '15px'][i]
+                this.style.backgroundColor = ['#eee', '#fff'][i % 2]
+            });
+        });
+    </script>
+</head>
+<body>
+<table id="tbStu" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <th>学号</th><th>姓名</th><th>性别</th><th>总分</th>
+    </tr>
+    <tr>
+      <td>1001</td><td>张小明</td><td>男</td><td>320</td>
+    </tr>
+    <tr>
+      <td>1002</td><td>李明琪</td><td>女</td><td>350</td>
+    </tr>
+    <tr>
+      <td>1003</td><td>刘博古</td><td>男</td><td>450</td>
+    </tr>
+    <tr>
+      <td>1004</td><td>陈小琴</td><td>女</td><td>530</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

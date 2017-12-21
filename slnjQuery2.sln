@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "objQuery2", "objQuery2", "{513A1E34-EB75-4F6A-A818-406CF47A9AE9}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "slnjQuery2", ".", "{D53BE3AB-3DA9-4720-A4B8-FBAF550EEF55}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/slnjQuery2"
+		Debug.AspNetCompiler.PhysicalPath = "..\slnjQuery2\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\slnjQuery2\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/slnjQuery2"
+		Release.AspNetCompiler.PhysicalPath = "..\slnjQuery2\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\slnjQuery2\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1178"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D53BE3AB-3DA9-4720-A4B8-FBAF550EEF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53BE3AB-3DA9-4720-A4B8-FBAF550EEF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D53BE3AB-3DA9-4720-A4B8-FBAF550EEF55} = {513A1E34-EB75-4F6A-A818-406CF47A9AE9}
+	EndGlobalSection
+EndGlobal

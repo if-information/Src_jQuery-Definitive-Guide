@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>使用传统JavaScript调用XML的方法</title>
+    <style type="text/css">
+           body{font-size:13px}
+           .iframe{width:260px;border:solid 1px #666}
+           .iframe .title{padding:5px;background-color:#eee}
+           .iframe .content{padding:8px;font-size:12px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        //加载xml文件
+        function loadXML(xmlFile) {
+            var xmlDoc, xmlhttp;
+            if (window.XMLHttpRequest) {//兼容 IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {//兼容 IE5、IE6 
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("GET", xmlFile, false);
+            xmlhttp.send();
+            xmlDoc = xmlhttp.responseXML;
+            return xmlDoc;
+        }
+        //按钮单击事件
+        function btn_Click() {
+            var strHTML = ""; //初始化保存内容变量
+            var NewXmlDoc = loadXML("Xml/7-4.xml");
+            var NewTmpTag = NewXmlDoc.getElementsByTagName("User");
+            strHTML += "姓名：" + NewTmpTag[0].getElementsByTagName("name")[0].firstChild.nodeValue + "<br>";
+            strHTML += "性别：" + NewTmpTag[0].getElementsByTagName("sex")[0].firstChild.nodeValue + "<br>";
+            strHTML += "邮箱：" + NewTmpTag[0].getElementsByTagName("email")[0].firstChild.nodeValue + "<hr>";
+            document.getElementById("Tip").innerHTML = strHTML; //显示处理后的数据
+        }
+    </script>
+</head>
+<body>
+   <div class="iframe">
+         <div class="title">
+              <input type="button" onclick="btn_Click()" 
+                     class="btn" value="获取数据" />
+         </div>
+         <div class="content">
+              <div id="Tip"></div>
+         </div>
+    </div>
+</body>
+</html>

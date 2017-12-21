@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自定义插件</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Plugs/11-11.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:13px}
+           .artFrame{height:780px}
+           .artContent{border:solid 1px #ccc;background-color:#eee;
+                    width:260px;padding:8px;word-break:break-all} 
+           .artList{line-height:1.8em}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $.fn.scrolltotop({
+                controlPos: [6, 6],//调整向上图标位置
+                scrollduration: 3000 //设置滑动时速度
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="artFrame">
+    <div class="artContent">
+          <div class="artList">
+               <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+               <span>一个优秀的程序开发员，除需掌握专业的开发语言，还要具有</span>
+               <span>执着、沉稳、细致的专业素质。</span>
+          </div>
+     </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿body 
+{
+	text-align:center; 
+	font-size:13px
+}
+.txt
+{
+	border:#666 1px solid;
+	width:70px
+}
+ul
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	float: right;
+	width:80px;
+}
+ul li
+{
+    text-align:left;
+	padding:5px;
+	border-bottom:solid 1px #ccc;
+	background-color:#eee;
+	height:18px;
+	line-height:18px;
+	cursor:pointer
+}
+#indexrotateimg
+{
+	margin:0 auto;
+	width:382px;
+}
+#contentrotateimg
+{
+	background-color:#eaeaea; 
+	border:solid 1px #666;
+	width:280px;
+	float:left
+}
+#liangle
+{
+	padding-bottom:10px;
+	display:none;
+}

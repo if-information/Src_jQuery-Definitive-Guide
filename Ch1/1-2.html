@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery事件的链式写法</title>
+    <script src="JScript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>    
+    <style type="text/css">
+       .iframe{ border:solid 1px #888;font-size:13px;}
+       .title{ padding:6px;background-color:#EEE;}
+       .content{ padding:8px 0px;font-size:12px;
+                 text-align:center;display:none;}
+       .curcol{ background-color:#CCC}
+    </style>  
+    <script type="text/javascript">
+        $(function() {
+            $(".content").html("您好！欢迎来到jQuery的精彩世界。");
+            $(".title").click(function() {
+                $(this).addClass("curcol")
+                .next(".content").css("display", "block");
+            });
+        });
+    </script>
+</head>
+<body>
+   <div class="iframe">
+       <div class="title">标题</div>
+       <div class="content"></div>
+   </div>
+</body>
+</html>

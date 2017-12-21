@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ContextMenu插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-8-6/jquery.contextmenu.js">
+    </script>
+    <link rel="stylesheet" type="text/css" 
+            href="Css-8-6/jquery.contextmenu.css" />
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:15px;line-height:1.6em}
+           .divFrame .divContent textarea{border:#666 1px solid;padding:2px;width:150px;margin-right:3px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $('#txtContent').contextMenu('sysMenu',
+              { bindings:
+                 {
+                     'Li1': function(Item) {
+                         alert("在ID号为：" + Item.id + "编辑框中，您点击了“新建”项");
+                     },
+                     'Li2': function(Item) {
+                         alert("在ID号为：" + Item.id + "编辑框中，您点击了“打开”项");
+                     }
+                     //设置其它选项事件
+                     //...
+                 },
+                  menuStyle: {
+                      border: '2px solid #999'
+                  },
+                  itemStyle: {
+                      fontFamily: 'verdana',
+                      backgroundColor: '#666',
+                      color: 'white',
+                      border: 'none',
+                      padding: '1px'
+
+                  },
+                  itemHoverStyle: {
+                      color: '#666',
+                      backgroundColor: '#f7f7f7',
+                      border: 'none'
+                  }
+              });
+        })
+    </script>
+</head>
+<body>
+   <div class="divFrame">
+        <div class="divTitle">
+              点击右键
+        </div>
+        <div class="divContent">
+            <textarea id="txtContent" cols="30" rows="5"></textarea>
+        </div>
+   </div>
+   <div class="contextMenu" id="sysMenu">
+        <ul>
+        <li id="Li1"><img src="Images-8-6/new.png" /> 新建</li>
+        <li id="Li2"><img src="Images-8-6/folder.png" /> 打开</li>
+        <li id="Li3"><img src="Images-8-6/disk.png" /> 保存</li>
+        <hr />
+        <li id="Li4"><img src="Images-8-6/cross.png" /> 退出</li>
+      </ul>
+    </div>
+</body>
+</html>

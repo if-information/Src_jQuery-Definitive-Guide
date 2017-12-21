@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.contains()函数检测两个节点是否包含</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:260px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var node0 = document.documentElement;
+            var node1 = document.body;
+            var strTmp = "对象node0是否包含对象node1："
+            strTmp += $.contains(node0, node1);//检测两者的包含关系
+            $("#divTip").append(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

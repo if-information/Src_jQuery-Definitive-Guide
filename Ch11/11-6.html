@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>开启或禁止页面右键菜单</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+            body{font-size:13px}
+            fieldset{width:260px}
+            legend{color:#555;font-weight:bold}
+            .div1{padding:5px}
+            .div2{padding:5px 15px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $(document).bind("contextmenu", function(e) {
+                if ($("#chkBlnRightKey").attr("checked") == true) {
+                    if ($("#Radio1").attr("checked") == true)
+                        return true
+                    else {
+                        if (!e.ctrlKey)
+                            return false;
+                        else
+                            return true
+                    }
+                }
+                else
+                    return false;
+            });
+            $("#chkBlnRightKey").bind("change", function() {
+                if ($(this).attr("checked") == true) {
+                    $("#Radio1,#Radio2").attr("disabled", false);
+                    $("#Radio1").attr("checked", true);
+                }
+                else {
+                    $("#Radio1,#Radio2").attr({ "disabled": true, "checked": false });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>设置</legend>
+        <div class="div1">
+            <input id="chkBlnRightKey" type="checkbox" />是否开启网页右键菜单
+            <div class="div2">
+                <input id="Radio1" type="radio" 
+                       name="rdoOpen" disabled="disabled"/>按鼠标右键开启<br />
+                <input id="Radio2" type="radio" 
+                       name="rdoOpen" disabled="disabled"/>按Ctrl+鼠标右键开启
+            </div>
+        </div>
+    </fieldset>
+</body>
+</html>

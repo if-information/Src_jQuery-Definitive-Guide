@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>选择器中含有空格符与不含空格符的区别</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .frame{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:300px}
+           .MyCls{padding:5px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var $objTmp0 = $(".MyCls :hidden");//选择器中含有空格符
+            var $objTmp1 = $(".MyCls:hidden");//选择器中没有空格符
+            var strTmp = "'.MyCls :hidden'方式获取的元素个数是：";
+            strTmp += $objTmp0.length;//获取含有空格符的总个数
+            strTmp += "<br><br>'.MyCls:hidden'方式获取的元素个数是：";
+            strTmp += $objTmp1.length; //获取不含空格符的总个数
+            $("#divTip").append(strTmp);//显示在页面中
+        })
+    </script>
+</head>
+<body>
+    <div class="frame">
+        <div id="div0" class="MyCls">
+             <div id="div1" class="MyCls" style="display:none"></div>
+        </div>
+        <div id="div2" class="MyCls" style="display:none"></div>
+        <div id="div3" class="MyCls" style="display:none"></div>
+        <div id="divTip"></div>
+    </div>
+</body>
+</html>

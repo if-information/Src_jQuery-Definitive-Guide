@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>移除事件unbind</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px} 
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+           div{line-height:1.8em}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            function oClick() { //自定义事件
+                $("#divTip").append("<div>按钮二的单击事件</div>");
+            }
+            $("input:eq(0)").bind("click", function() { //绑定单击事件
+                $("#divTip").append("<div>按钮一的单击事件</div>");
+            });
+            $("input:eq(1)").bind("click", oClick); //绑定自定义事件
+            $("input:eq(2)").bind("click", function() { //移除全部单击事件
+                $("input").unbind("click",oClick);
+            });
+        })
+    </script>
+</head>
+<body>
+     <div>
+         <input id="Button1" type="button" value="按钮一" class="btn" />
+         <input id="Button2" type="button" value="按钮二" class="btn"/>
+         <input id="Button3" type="button" value="删除事件" class="btn"/>
+     </div>
+     <div id="divTip" style="padding-top:10px"></div>
+</body>
+</html>

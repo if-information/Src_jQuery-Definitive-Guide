@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.map()工具函数变更数组中的元素</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:300px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var strTmp = "变更前数据：";
+            var arrNum = [2, 8, 3, 7, 4, 9, 3, 10, 9, 7, 21];
+            var arrGet = $.map(arrNum, function(ele, index) {
+                if (ele > 5 && index < 8) { //元素值大于5且序号小于8
+                    return ele + 1; //元素增加1
+                }
+            })
+            strTmp += arrNum.join();
+            strTmp += "<br/><br>变更后数据："
+            strTmp += arrGet.join();
+            $("#divTip").append(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

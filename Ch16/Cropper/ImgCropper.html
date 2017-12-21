@@ -1,0 +1,82 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应用案例(1)_图片切割</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Jscript/jquery.imagecropper.js">
+    </script>
+    <script type="text/javascript">
+        $(function() {
+        $('#cropbox').Cropper({ //调用切割方法
+                aspectRatio: 1,//设置所选区域的长宽比例
+                onChange: showPreview,//设置长宽变化后触发的事件
+                onSelect: showPreview //设置选择区域后触发的事件
+            })
+        });
+        //自定义提交切割数据时的检测函数
+        function checkCoords() {
+            if (parseInt($('#w').val())) return true;
+            alert('请选择一个区域后，点击确定按钮！');
+            return false;
+        }
+        //根据预览图片的大小调用图片预览函数
+        function showPreview(coords) {
+            if (parseInt(coords.w) > 0) {
+                imgPrev(coords, "#img100", 100);
+                imgPrev(coords, "#img80", 80);
+                imgPrev(coords, "#img60", 60);
+            }
+            //获取所选择区域的坐标与宽高
+            $('#x').val(coords.x);
+            $('#y').val(coords.y);
+            $('#w').val(coords.w);
+            $('#h').val(coords.h);
+        }
+        //自定义所选择区域的图片预览函数
+        function imgPrev(coords,obj, w) {
+            var rx = w / coords.w;
+            var ry = w / coords.h;
+            $(obj).css({ //预览图片
+                width: Math.round(rx * 504) + 'px',
+                height: Math.round(ry * 378) + 'px',
+                marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+                marginTop: '-' + Math.round(ry * coords.y) + 'px'
+            });
+        }
+    </script>
+	<link rel="stylesheet" type="text/css" 
+	      href="Css/ImgCropper.css"/>
+</head>
+<body>
+    <div id="outer">
+	  <div class="jcExample">
+	    <div class="article">
+		  <h2>图片切割示例</h2>
+		     <img src="Images/imgDemo.jpg" id="cropbox" />
+		     <form action="CropImage.ashx" method="post" 
+		           onsubmit="return checkCoords();">
+			    <input type="hidden" id="x" name="x" />
+			    <input type="hidden" id="y" name="y" />
+			    <input type="hidden" id="w" name="w" />
+			    <input type="hidden" id="h" name="h" />
+			    <input type="hidden" id="p" name="p" 
+			           value="Images/imgDemo.jpg" />
+			    <input type="hidden" id="l" name="l" value="0.9"/>
+			    <input type="submit" value="确定" class="btn" />
+		     </form>
+	    </div>
+	    <div class="clsPre">
+	         <div class="img100"><img src="Images/imgDemo.jpg" class="imgPre" id="img100"/>
+	              </div><div class="clsAlt">100*100 像素</div>
+	         <div class="img80"><img src="Images/imgDemo.jpg" class="imgPre" id="img80"/>
+	              </div><div class="clsAlt">80*80 像素</div>
+	         <div class="img60"><img src="Images/imgDemo.jpg" class="imgPre" id="img60"/>
+	              </div><div class="clsAlt">60*60 像素</div>
+	    </div>
+	  </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用函数$.extend()扩展工具函数</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:260px}
+    </style>
+    <script type="text/javascript">
+        /*------------------------------------------------------------/
+        功能：返回两个数中最大值
+        参数：数字p1,p2
+        返回：最大值的一个数
+        示例：$.MaxNum(1,2);
+        /------------------------------------------------------------*/
+        ; (function($) {
+            $.extend({
+                "MaxNum": function(p1, p2) {
+                    return (p1 > p2) ? p1 : p2;
+                }
+            });
+        })(jQuery);
+
+        /*------------------------------------------------------------/
+        功能：返回两个数中最小值
+        参数：数字p1,p2
+        返回：最小值的一个数
+        示例：$.MinNum(1,2);
+        /------------------------------------------------------------*/
+        ; (function($) {
+            $.extend({
+                "MinNum": function(p1, p2) {
+                    return (p1 > p2) ? p2 : p1;
+                }
+            });
+        })(jQuery);
+        
+        $(function() {
+            var strTmp = "5与6中最大的数是：";
+            strTmp += $.MaxNum(5, 6);
+            strTmp += "<br><br>7与8中最小的数是：";
+            strTmp += $.MinNum(7, 8);
+            $("#divTip").append(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

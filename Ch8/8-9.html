@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>动画表格排序插件tableSort</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Js-8-9/jquery.tableSort.js" 
+            type="text/javascript"></script>
+    <link href="Css-8-9/8-9.css" rel="stylesheet" 
+            type="text/css" />
+    <script type="text/javascript">
+        $(function() {
+            var $tb = $("#tbStudent");
+            var $tip = $("#tip");
+            var $bln = true;
+            var $str = "降";
+            //遍历table标题中的a元素
+            $(".table tr th a").each(function(i) {
+                $(this).bind("click", function() {
+                    $bln = $bln ? false : true;
+                    $str = $bln ? "降" : "升";
+                    $tip.show().html("当前按 <b>" +
+                       $(this).html() + $str + "序</b> 排列");
+                    $tb.sortTable({
+                        onCol: i + 1,
+                        keepRelationships: true,
+                        sortDesc: $bln
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="tip"></div>
+<table id="tbStudent" class="table">
+    <tr>
+       <th><a href="javascript:">编号</a></th>
+       <th><a href="javascript:">姓名</a></th>
+       <th><a href="javascript:">性别</a></th>
+       <th><a href="javascript:">总分</a></th>
+    </tr>
+    <tr>
+       <td>1031</td>
+       <td>李渊</td>
+       <td>男</td>
+       <td>654</td>
+    </tr>
+    <tr>
+       <td>1021</td>
+       <td>张扬</td>
+       <td>男</td>
+       <td>624</td>
+    </tr>
+    <tr>
+       <td>1011</td>
+       <td>吴敏</td>
+       <td>女</td>
+       <td>632</td>
+    </tr>
+    <tr>
+       <td>1026</td>
+       <td>李小明</td>
+       <td>男</td>
+       <td>610</td>
+    </tr>
+    <tr>
+       <td>1016</td>
+       <td>周谨</td>
+       <td>女</td>
+       <td>690</td>
+    </tr>
+    <tr>
+       <td>1041</td>
+       <td>谢小敏</td>
+       <td>女</td>
+       <td>632</td>
+    </tr>
+    <tr>
+       <td>1072</td>
+       <td>刘明明</td>
+       <td>男</td>
+       <td>633</td>
+    </tr>
+    <tr>
+       <td>1063</td>
+       <td>蒋忠公</td>
+       <td>男</td>
+       <td>675</td>
+    </tr>
+</table>
+</body>
+</html>

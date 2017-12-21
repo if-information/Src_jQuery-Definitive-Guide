@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>编写一个对象级别的插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Plugin/jquery.lifocuscolor.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:8px;line-height:1.6em}
+           .divFrame .divContent ul{padding:0px;margin:0px;list-style-type:none}
+           .divFrame .divContent ul li span{margin-right:20px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#u1").focusColor("red");//调用自定义的插件
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+         <div class="divTitle">
+              对象级别的插件
+         </div>
+         <div class="divContent">
+              <ul id="u1">
+                  <li><span>张三</span><span>男</span></li>
+                  <li><span>李四</span><span>女</span></li>
+                  <li><span>王五</span><span>男</span></li>
+              </ul>
+         </div>
+     </div>
+    
+</body>
+</html>

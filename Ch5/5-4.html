@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>slideDown()与slideUp()方法</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:86px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee}
+           .divFrame .divContent{padding:8px;}
+           .divFrame .divContent img{border:solid 1px #ccc;padding:2px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var blnShow = false; //初始化一个布尔变量值
+            var $Title = $(".divTitle"); //定义变量获取标题部分
+            var $Tip = $("#divTip"); //定义变量获取提示元素
+
+            $Title.click(function() { //点击标题部分事件
+                if (!blnShow) {
+                    //图片高度向上减小，执行完成后，回调一个函数
+                    $("img").slideUp(3000, function() {
+                        $Tip.html("关闭成功！");
+                    })
+                    $(this).html("显示图片"); //改变标题内容
+                    blnShow = true; //改变布尔变量值
+                }
+                else {
+                    $Tip.html(""); //清空提示内容
+                    $("img").slideDown(3000); //图片高度向下增大
+                    $(this).html("隐藏图片");
+                    blnShow = false;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+      <div class="divFrame">
+           <div class="divTitle">隐藏图片</div>
+           <div class="divContent">
+                <img src="Images/img02.jpg" alt=""/>
+                <div id="divTip"></div>
+           </div>
+      </div>
+</body>
+</html>

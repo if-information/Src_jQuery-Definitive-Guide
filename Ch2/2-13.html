@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用jQuery表单过滤选择器</title>
+    <script language="javascript" type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           form{width:241px}
+           textarea,select,button,input,span{display:none}
+           .btn {border:#666 1px solid;padding:2px;width:60px;
+                 filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+           .txt{border:#666 1px solid;padding:3px}
+           .img{padding:2px;border:solid 1px #ccc}
+           .div{border:solid 1px #ccc;background-color:#eee;padding:5px}
+    </style>
+    <script type="text/javascript">
+            $(function(){ //显示Input类型元素的总数量
+              $("#form1 div").html("表单共找出 Input 类型元素:"+$("#form1 :input").length);
+              $("#form1 div").addClass("div");
+            })
+            $(function(){ //显示所有文本框对象
+              $("#form1 :text").show(3000);
+            })
+            $(function(){ //显示所有密码框对象
+              $("#form1 :password").show(3000);
+            })
+            $(function(){ //显示所有单选按钮对象
+              $("#form1 :radio").show(3000);
+              $("#form1 #Span1").show(3000);
+            })
+            $(function(){  //显示所有复选框对象
+              $("#form1 :checkbox").show(3000);
+              $("#form1 #Span2").show(3000);
+            })
+            $(function(){ //显示所有提交按钮对象
+              $("#form1 :submit").show(3000);
+            })
+            $(function(){ //显示所有图片域对象
+              $("#form1 :image").show(3000);
+            })
+            $(function(){ //显示所有重置按钮对象
+              $("#form1 :reset").show(3000);
+            })
+            $(function(){ //显示所有按钮对象
+              $("#form1 :button").show(3000);
+            })
+            $(function(){ //显示所有文件域对象
+              $("#form1 :file").show(3000);
+            })
+    </script>
+</head>
+<body>
+      <form id="form1">
+            <textarea class="txt"> TextArea</textarea>
+            <select><option value="0"> Item 0</option></select>
+            <input type="text" value="Text" class="txt"/>
+            <input type="password" value="PassWord" class="txt"/>
+            <input type="radio" /><span id="Span1"> Radio</span>
+            <input type="checkbox" /><span id="Span2"> CheckBox</span>
+            <input type="submit" value="Submit" class="btn"/>
+            <input type="image" title="Image" src="Images/logo.gif" class="img"/>
+            <input type="reset" value="Reset" class="btn"/>
+            <input type="button" value="Button" class="btn"/>
+            <input type="file" title="File" class="txt"/>
+            <div id="divShow"></div>
+      </form>
+</body>
+</html>

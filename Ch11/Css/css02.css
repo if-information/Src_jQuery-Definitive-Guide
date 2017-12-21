@@ -1,0 +1,13 @@
+﻿body
+{
+	font-size:13px;
+}
+.test
+{
+	width:260px;	
+	font-weight:bold;
+	background-color:#555;
+	color:#fff;
+	margin:10px 0px;
+	padding:8px;
+}

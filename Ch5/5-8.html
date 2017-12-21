@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>简单的动画</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           .divFrame{border:solid 1px #ccc;background-color:#eee;
+                     width:60px;height:60px;font-size:13px;padding:5px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $(".divFrame").click(function() { //div元素点击事件
+                $(this).animate({ //宽与高变化的动画效果
+                    width: "20%",
+                    height: "70px"
+                },
+                 3000, function() { //动画完成后执行的回调函数
+                     $(this).css({ "border": "solid 3px #666" })
+                     .html("变大了！");
+                 })
+            })
+        })
+    </script>
+</head>
+<body>
+     <div class="divFrame">
+          点击变大
+     </div>
+</body>
+</html>

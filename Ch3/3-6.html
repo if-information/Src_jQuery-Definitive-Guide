@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>获取或设置元素的值</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           div{padding:3px;margin:3px;width:120px;float:left}
+           .txt{border:#666 1px solid;padding:3px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("select").change(function() { //设置下拉列表框change事件
+                var strSel = $("select").val().join(","); //获取下拉列表框所选中全部选项值
+                $("#p1").html(strSel); //显示下拉列表框所选中全部选项值
+            })
+            $("input").change(function() { //设置文本框focus事件
+                var strTxt = $("input").val(); //获取文本框的值
+                $("#p2").html(strTxt); //显示文本框所输入的值
+            })
+            $("input").focus(function() { //设置文本框focus事件
+                $("input").val(""); //清空文本框的值
+            })
+        })
+    </script>
+</head>
+<body>
+     <div>
+         <select multiple="multiple" style="height:96px;width:85px">
+                 <option value="1">Item 1</option>
+                 <option value="2">Item 2</option>
+                 <option value="3">Item 3</option>
+                 <option value="4">Item 4</option>
+                 <option value="5">Item 5</option>
+                 <option value="6">Item 6</option>
+         </select>
+         <p id="p1"></p>
+     </div>
+     <div>
+         <input type="text" class="txt"/>
+         <p id="p2"></p>
+     </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用draggable插件实现对象的拖曳操作</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.core.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.widget.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.mouse.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-9-1/jquery.ui.draggable.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px}
+           .divFrame{border:dashed 1px #ccc;background-color:#eee;
+                 height:68px;width:200px}
+           .divDrag{border:solid 1px #ccc;background-color:#eee;
+                    cursor:move;width:40px;
+                    padding:20px;text-align:center}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            //以透明度0.35随意拖动
+            $("#divDragD").draggable({ opacity: 0.35 });
+            //以透明度0.35随意在X轴方向拖动
+            $("#divDragX").draggable({ axis: "x", opacity: 0.35 });
+            //以透明度0.35随意在父窗口中拖动，拖动后返回原地
+            $("#divDragC").draggable(
+            { containment: "parent",
+                opacity: 0.35,
+                revert: true
+            });
+        })
+    </script>
+</head>
+<body>
+     <div id="divDragD" class="divDrag">随意</div>
+     <div class="divFrame">
+          <div id="divDragX" class="divDrag">X轴</div>
+     </div>
+     <div class="divFrame">
+          <div id="divDragC" class="divDrag">父窗口</div>
+     </div>
+</body>
+</html>

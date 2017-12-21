@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>validate验证插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-8-1/jquery.validate.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-8-1/jquery.validate.messages_cn.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           span{color:Red;font-size:12px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:8px;line-height:1.6em}
+           .divFrame .divBtn{padding-bottom:8px;padding-left:8px}
+           .txt{border:#666 1px solid;padding:2px;width:150px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#frmV").validate(
+              {
+                  /*自定义验证规则*/
+                  rules: {
+                      username: { required: true, minlength: 6 },
+                      email: { required: true, email: true }
+                  },
+                  /*错误提示位置*/
+                  errorPlacement: function(error, element) {
+                      error.appendTo(element.siblings("span"));
+                  }
+              }
+            );
+        })
+    </script>
+</head>
+<body>
+     <form id="frmV" method="get" action="#">
+     <div class="divFrame">
+         <div class="divTitle">
+              请输入下列资料
+         </div>
+         <div class="divContent">
+              <div>
+              用户名：<br />
+              <input id="username" name="username" 
+                     type="text" class="txt" />
+              <font color="red">*</font><br />
+              <span></span>
+              </div>
+              <div>
+              邮箱：<br />
+              <input id="email" name="email" 
+                     type="text" class="txt" />
+              <font color="red">*</font><br />
+              <span></span>
+              </div>
+         </div>
+         <div class="divBtn">
+              <input id="sbtUser" type="submit" 
+                     value="提交" class="btn" />
+         </div>
+     </div>
+     </form>
+</body>
+</html>

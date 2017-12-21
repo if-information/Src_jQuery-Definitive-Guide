@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用函数$.proxy()改变事件函数的作用域</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:260px}
+           input{margin:5px}
+           .btn {border:#666 1px solid;padding:2px;width:60px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var objMyInfo = {
+                name: "陶国荣", //设置对象name属性
+                sex: "男", //设置对象sex属性
+                ShowEvent: function() { //设置执行的事件
+                    $("#divShow").html("姓名：" +
+                     this.name + "<br><br>性别：" +
+                     this.sex);
+                }
+            }
+            $("#Button1").bind("click", //通过proxy函数绑定设置的事件
+            $.proxy(objMyInfo, "ShowEvent"));
+        })
+    </script>
+</head>
+<body>
+   <input id="Button1" type="button" value="显示" class="btn" />
+   <div id="divShow"></div>
+</body>
+</html>

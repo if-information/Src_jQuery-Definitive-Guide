@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自定义主题样式</title>
+    <link rel="stylesheet" href="Css/css01.css" type="text/css"/> 
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#selChangeTheme").change(function() {
+                $('link[rel=stylesheet]').attr('href', $(this).val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        选择主题：
+        <select id="selChangeTheme">
+            <option value="Css/css01.css">默认主题</option>
+            <option value="Css/css02.css">加粗和背景色</option>
+        </select>
+        <div class="test">自定义主题色</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>在指定的查找范围内获取DOM元素</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .MyCls0{border:solid 1px #666;margin:5px;width:200px}
+           .MyCls1{border:solid 1px #ccc;margin:5px;width:200px}
+           .MyCls{background-color:#eee;padding:5px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            window.$objPub = { //在全局范围中，定义一个windows对象
+                $objTmp0: $("#div0", ".MyCls0"),
+                $objTmp1: $("#div1")
+            }
+            TestFun();
+        })
+        function TestFun() { //自定义显示div内容的函数
+            $objPub.$objTmp0.html("Tmp0");
+            $objPub.$objTmp1.html("Tmp1");
+        }
+    </script>
+</head>
+<body>
+    <div class="MyCls0">
+         <div id="div0" class="MyCls" title="tmp0"></div>
+    </div>
+    <div class="MyCls1">
+         <div id="div1" class="MyCls" title="tmp1"></div>
+    </div>
+</body>
+</html>

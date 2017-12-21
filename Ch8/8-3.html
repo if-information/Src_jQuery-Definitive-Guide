@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>cookie插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-8-3/jquery.cookie.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:8px;line-height:1.6em}
+           .divFrame .divBtn,#divData{padding-bottom:8px;padding-left:8px}
+           .txt{border:#666 1px solid;padding:2px;width:150px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            if ($.cookie("UserName")) { //如果有值，则显示在文本框中
+                $("#UserName").val($.cookie("UserName"));
+            }
+            
+            $("#sbtUser").submit(function() { //表单提交事件
+            if ($("#chkSave").attr("checked")) { //如果选中了保存"用户名"项
+                    //设置Cookie值
+                    $.cookie("UserName", $("#UserName").val(), {
+                        path: "/", expires: 7
+                    })
+                }
+                else {
+                    //销毁Cookie值
+                    $.cookie("UserName", null, {
+                        path: "/"
+                    })
+                }
+                return false; //表单不提交
+            })
+        })
+    </script>
+</head>
+<body>
+     <form id="frmUserInfo" method="get" action="#">
+     <div class="divFrame">
+         <div class="divTitle">
+              用户登录
+         </div>
+         <div class="divContent">
+              <div>
+              用户名：<br />
+              <input id="UserName" name="UserName" 
+                     type="text" class="txt" />
+              </div>
+              <div>
+              密码：<br />
+              <input id="UserPass" name="UserPass" 
+                     type="password" class="txt" />
+              </div>
+              <div><input id="chkSave" type="checkbox" />
+                   是否保存用户名
+              </div>
+         </div>
+         <div class="divBtn">
+              <input id="sbtUser" type="submit" 
+                     value="提交" class="btn" />
+         </div>
+         <div id="divData"></div>
+     </div>
+     </form>
+</body>
+</html>

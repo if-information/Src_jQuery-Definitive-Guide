@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery 解析XML 数据</title>
+    <script src="JScript/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:13px}
+           .iframe{width:260px;border:solid 1px #666}
+           .iframe .title{padding:5px;background-color:#eee}
+           .iframe .content{padding:8px;font-size:12px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Button1").click(function() { //按钮单击事件
+                var strHTML = ""; //初始化保存内容变量
+                $.ajax({
+                    url: 'Xml/7-5.xml',
+                    dataType: 'xml',
+                    success: function(data) {
+                        var $strUser = $(data).find("User");
+                        strHTML += "编号：" + $strUser.attr("id") + "<br>";
+                        strHTML += "姓名：" + $strUser.children("name").text() + "<br>";
+                        strHTML += "性别：" + $strUser.children("sex").text() + "<br>";
+                        strHTML += "邮箱：" + $strUser.children("email").text() + "<hr>";
+                        $("#Tip").html(strHTML); //显示处理后的数据
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+   <div class="iframe">
+         <div class="title">
+              <input id="Button1" type="button"
+                     class="btn" value="获取数据" />
+         </div>
+         <div class="content">
+              <div id="Tip"></div>
+         </div>
+    </div>
+</body>
+</html>

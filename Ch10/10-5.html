@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.grep()工具函数筛选数组中的元素</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:300px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var strTmp = "筛选前数据：";
+            var arrNum = [2, 8, 3, 7, 4, 9, 3, 10, 9, 7, 21];
+            var arrGet = $.grep(arrNum, function(ele, index) {
+                return ele > 5 && index < 8 //元素值大于5且序号小于8
+            })
+            strTmp += arrNum.join();
+            strTmp += "<br/><br>筛选后数据："
+            strTmp += arrGet.join();
+            $("#divTip").append(strTmp);
+        })
+    </script>
+</head>
+<body>
+    <div id="divTip"></div>
+</body>
+</html>

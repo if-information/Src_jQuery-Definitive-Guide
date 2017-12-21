@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用jQuery 扩展工具函数实现对字符串指定类型的检测</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:11px}
+           fieldset{width:410px}
+           fieldset div{padding:8px}
+           fieldset div select{font-size:9pt;padding:1px}
+           #divTip{margin-top:10px;padding:10px;border:solid 1px #666;
+           background-color:#eee;width:210px;display:none}
+           .txt{border:#666 1px solid;padding:2px;width:120px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:60px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        /*------------------------------------------------------------/
+        功能：返回检测字符串指定类型的结果
+        参数：checkType 为检测字符串的类型;strS 为待检测的字符串
+        返回：一个bool值,true 表示是指定的类型，false 表示不是指定的字符类型
+        示例：$.chkStrByType("陶国荣", "zh_cn");
+        /------------------------------------------------------------*/
+         ; (function($) {
+             $.extend({
+                 chkStrByType: function(strS, chkType) {
+                     var result;
+                     switch (chkType) {
+                         case 'odd'://奇数型
+                             var chkStr = arrRegExp['number'];
+                             var reg = RegExp(chkStr, 'g');
+                             var result = reg.test(strS);
+                             if (true == result) {
+                                 var num = parseInt(strS) % 2;
+                                 if (1 == num) {
+                                     result = true;
+                                 } else {
+                                     result = false;
+                                 }
+                             } else {
+                                 result = false;
+                             }
+                             break;
+                         case 'even'://偶数型
+                             var chkStr = arrRegExp['number'];
+                             var reg = RegExp(chkStr, 'g');
+                             var result = reg.test(strS);
+                             if (true == result) {
+                                 var num = parseInt(strS) % 2;
+                                 if (num == 0) {
+                                     result = true;
+                                 } else {
+                                     result = false;
+                                 }
+                             } else {
+                                 result = false;
+                             }
+                             break;
+                         default://其它类型按正则表达式检测
+                             var chkStr = arrRegExp[chkType];
+                             var reg = RegExp(chkStr, 'g');
+                             var result = reg.test(strS);
+                             break;
+                     }
+                     return result;
+                 }
+             });
+             /*  正则验证字符串表达式  */
+             var arrRegExp = {};
+             arrRegExp['email'] = '\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*';
+             arrRegExp['telephone'] = '(\\(\\d{3,4}\\)|\\d{3,4}-|\\s)?\\d{7,8}';
+             arrRegExp['mobile'] = '(86)*0*1[3,5]\\d{9}';
+             arrRegExp['postcode'] = '^\\d{6}$';
+             arrRegExp['number'] = '^-?[0-9]\\d*$';
+             arrRegExp['zh_cn'] = '[\\u4e00-\\u9fa5]';
+             arrRegExp['url'] = '[a-zA-z]+://[^\\s]*';
+         })(jQuery);
+
+         $(function() {
+             $("#btnChkStr").click(function() {
+                 //获取待检测的字符串与指定的类型
+                 var $ChkStr = $("#txtChkStr").val();
+                 var $ChkType = $("#selStrType").val();
+                 //保存检测后的结果值
+                 var blnResult = $.chkStrByType($ChkStr, $ChkType);
+                 //返回检测后的结果
+                 var strTmpShow = "";
+                 var strTmpType = blnResult ? " 是 " : " 不是 ";
+                 strTmpShow = $ChkStr + strTmpType;
+                 strTmpShow = strTmpShow + $("select :selected").text();
+                 strTmpShow = strTmpShow + " 类型";
+                 //将返回后的结果显示在页面中
+                 $("#divTip").show().html("").append(strTmpShow);
+             });
+         });
+    </script>
+</head>
+<body>
+   <fieldset><legend>指定类型检测字符串</legend>
+      <div>
+       <span>检测内容：</span><input id="txtChkStr" type="text" class="txt" />
+       <span>选择类型：</span>
+       <select id="selStrType">
+        <option value="email">邮箱</option>
+        <option value="telephone">电话号码</option>
+        <option value="mobile">手机号码</option>
+        <option value="postcode">邮政编码</option>
+        <option value="number">整数</option>
+        <option value="zh_cn">汉字</option>
+        <option value="url">网址</option>
+        <option value="odd">奇数</option>
+        <option value="even">偶数</option>
+       </select>
+       <input id="btnChkStr" type="button" value="检测" class="btn" />
+       <div id="divTip"></div>
+      </div>
+   </fieldset>
+</body>
+</html>

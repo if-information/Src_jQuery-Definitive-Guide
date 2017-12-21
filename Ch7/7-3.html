@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery 操作JSON 数据</title>
+    <script src="JScript/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:13px}
+           .iframe{width:260px;border:solid 1px #666}
+           .iframe .title{padding:5px;background-color:#eee}
+           .iframe .content{padding:8px;font-size:12px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        var strInfo = "{'name': '陶国荣','sex': '男','email': 'tao_guo_rong@163.com','date':1349340837359}";
+        $(function() {
+            //定义按钮文字变量
+            var strV0 = "原始数据";
+            var strV1 = "变化数据";
+            //按钮单击事件
+            $("#Button1").click(function() {
+                //初始化保存内容变量 
+                var strHTML = "";
+                //将字符串转成JSON对象
+                var objInfo = eval('(' + strInfo + ')');
+                //根据按钮文字改变JSON对象中的值
+                if ($(this).val() == strV1) {
+                    objInfo.date = new Date().getTime();
+                }
+                strHTML += "姓名：" + objInfo.name + "<br>";
+                strHTML += "性别：" + objInfo.sex + "<br>";
+                strHTML += "邮箱：" + objInfo.email + "<br>";
+                strHTML += "时间：" + objInfo.date + "<hr>";
+                //切换按钮显示的文字
+                if ($(this).val() == strV0) {
+                    $(this).val(strV1);
+                } else {
+                    $(this).val(strV0);
+                }
+                //显示处理后的数据
+                $("#Tip").html(strHTML); 
+            });
+        });
+    </script>
+</head>
+<body>
+   <div class="iframe">
+         <div class="title">
+              <input id="Button1" type="button" 
+                     class="btn" value="原始数据" />
+         </div>
+         <div class="content">
+              <div id="Tip"></div>
+         </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用jQuery可见性过滤选择器</title>
+    <script language="javascript" type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           div,span{float:left;border:solid 1px #ccc;margin:8px;width:65px;height:65px}
+           .GetFocus{border:solid 1px #666;background-color:#eee}
+    </style>
+    <script type="text/javascript">
+            $(function(){ //增加所有可见元素类别
+              $("span:hidden").show();
+              $("div:visible").addClass("GetFocus");
+            })
+            $(function(){ //增加所有不可见元素类别
+              $("span:hidden").show().addClass("GetFocus");
+            })
+    </script>
+</head>
+<body>
+    <span style="display:none">Hidden</span>
+    <div>Visible</div>
+</body>
+</html>

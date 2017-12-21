@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>解决jQuery库先于其他库导入时，变量“$”的使用权</title>
+    <!--先导入jQuery库-->
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <!--后导入prototype库-->
+    <script type="text/javascript" 
+            src="Jscript/prototype-1.6.0.3.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        //直接使用jQuery，无须使用jQuery.noConflict()函数
+        jQuery(function() {
+            jQuery("#Button1").click(function() {
+                //获取对象
+                var $objTmp = jQuery("#txtName");
+                //显示内容
+                jQuery("#divTmp").html("J_" + $objTmp.val());
+            })
+        })
+        //自定义一个测试函数
+        function prototype_test() {
+            //使用prototype语法获取元素内容
+            $("divTmp").innerHTML = "P_" + $F("txtName");
+        }
+</script>
+</head>
+<body>
+   <input type="text" id="txtName" value="测试内容" style="display:none">
+   <div>
+       <input id="Button1" type="button" value="jQuery" class="btn" />&nbsp;&nbsp;
+       <input id="Button2" type="button" value="prototype" onclick="prototype_test();" class="btn" />
+   </div>
+   <div id="divTmp"></div>
+</body>
+</html>

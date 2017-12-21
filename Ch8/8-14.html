@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery滚动插件NiceScroll</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Js-8-14/jquery.nicescroll.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+           body{font:13px/1.6 Georgia, serif;color:#333}
+           .bs{padding:5px;height:120px;margin:10px 0px;
+	           border:1px solid #555;overflow:auto;width:380px}
+	       .bs .scrimg{ width:762px}
+	       .bs .scrimg img{ width:150px; height:200px}
+           .p{height:500px}
+</style>
+    <script type="text/javascript">
+        $(function() {
+            //图片区域显示滚动效果
+            $("#Box_Scr_1").niceScroll("#Box_Scr_1 div", {
+                touchbehavior: true,
+                cursorcolor: "#333",
+                cursoropacitymax: 0.6,
+                autohidemode: false,
+                boxzoom: true
+            });
+            //div区域显示滚动效果
+            $("#Box_Scr_2").niceScroll("#content", {
+                cursorcolor: "#666",
+                autohidemode: false,
+                boxzoom: true
+            });
+            //iframe区域显示滚动效果
+            $("#Box_Scr_3").niceScroll("iframe", {
+                cursorcolor: "#ccc",
+                autohidemode: false,
+                boxzoom: true
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="Box_Scr_1" class="bs">
+   <div class="scrimg">
+       <img src="Images-8-14/pic10.jpg" 
+            onmousedown="return false"/>
+       <img src="Images-8-14/pic10.jpg" 
+            onmousedown="return false"/>
+       <img src="Images-8-14/pic10.jpg" 
+            onmousedown="return false"/>
+       <img src="Images-8-14/pic10.jpg" 
+            onmousedown="return false"/>
+       <img src="Images-8-14/pic10.jpg" 
+            onmousedown="return false"/>
+   </div>
+</div>
+<div id="Box_Scr_2" class="bs">
+   <div id="content">
+      <h3>这是一个div区域</h3>
+      <p class="p">内容区域</p>
+   </div>
+</div>
+<div id="Box_Scr_3" class="bs">
+    <iframe src="8-14-1.html" height="100%" 
+            width="100%" frameborder="0" 
+            onload="$(this).height($(this).contents().height());">
+    </iframe>
+</div>
+</body>
+</html>

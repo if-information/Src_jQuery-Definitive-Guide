@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>getJSON函数获取数据</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee}
+           .divFrame .divContent{padding:8px}
+           .divFrame .divContent .clsShow{font-size:14px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Button1").click(function() { //按钮单击事件
+                //打开文件，并通过回调函数处理获取的数据
+                $.getJSON("UserInfo.json", function(data) {
+                    $("#divTip").empty(); //先清空标记中的内容
+                    var strHTML = ""; //初始化保存内容变量
+                    $.each(data, function(InfoIndex, Info) { //遍历获取的数据
+                        strHTML += "姓名：" + Info["name"] + "<br>";
+                        strHTML += "性别：" + Info["sex"] + "<br>";
+                        strHTML += "邮箱：" + Info["email"] + "<hr>";
+                    })
+                    $("#divTip").html(strHTML); //显示处理后的数据
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+   <div class="divFrame">
+         <div class="divTitle">
+              <input id="Button1" type="button" 
+                     class="btn" value="获取数据" />
+         </div>
+         <div class="divContent">
+              <div id="divTip"></div>
+         </div>
+    </div>
+</body>
+</html>

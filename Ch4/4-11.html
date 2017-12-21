@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>列表中的导航菜单应用</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           ul,li{list-style-type:none;padding:0px;margin:0px}
+           .menu{width:190px;border:solid 1px #E5D1A1;background-color:#FFFDD2}
+           .optn{width:190px;line-height:28px;border-top:dashed 1px #ccc}
+           .content{padding-top:10px;clear:left}
+           a{text-decoration:none;color:#666;padding:10px}
+           .optnFocus{background-color:#fff;font-weight:bold}
+           div{padding:10px}
+           div img{float:left;padding-right:6px}
+           span{padding-top:3px;font-size:14px;font-weight:bold;float:left}
+           .tip{width:190px;border:solid 2px #ffa200;position:absolute;padding:10px;
+                background-color:#fff;display:none}
+           .tip li{line-height:23px;}
+           #sort{position:absolute;display:none}
+    </style> 
+  <script type="text/javascript">
+      $(function() {
+          var curY; //获取所选项的Top值
+          var curH; //获取所选项的Height值
+          var curW; //获取所选项的Width值
+          var srtY; //设置提示箭头的Top值
+          var srtX; //设置提示箭头的Left值
+          var objL; //获取当前对象
+          /*
+          *设置当前位置数值
+          *参数obj为当前对象名称
+          */
+          function setInitValue(obj) {
+              curY = obj.offset().top
+              curH = obj.height();
+              curW = obj.width();
+              srtY = curY + (curH / 2) + "px"; //设置提示箭头的Top值
+              srtX = curW - 5 + "px"; //设置提示箭头的Left值
+          }
+          $(".optn").mouseover(function() {//设置当前所选项的鼠标滑过事件
+              objL = $(this); //获取当前对象
+              setInitValue(objL); //设置当前位置
+              var allY = curY - curH + "px"; //设置提示框的Top值
+              objL.addClass("optnFocus"); //增加获取焦点时的样式
+              objL.next("ul").show().css({ "top": allY, "left": curW }) //显示并设置提示框的坐标
+              $("#sort").show().css({ "top": srtY, "left": srtX }); //显示并设置提示箭头的坐标
+          })
+          .mouseout(function() {//设置当前所选项的鼠标移出事件
+              $(this).removeClass("optnFocus"); //删除获取焦点时的样式
+              $(this).next("ul").hide(); //隐藏提示框
+              $("#sort").hide(); //隐藏提示箭头
+          })
+          $(".tip").mousemove(function() {
+              $(this).show(); //显示提示框
+              objL = $(this).prev("li"); //获取当前的上级li对象
+              setInitValue(objL); //设置当前位置
+              objL.addClass("optnFocus"); //增加上级li对象获取焦点时的样式
+              $("#sort").show().css({ "top": srtY, "left": srtX }); //显示并设置提示箭头的坐标
+          })
+          .mouseout(function() {
+              $(this).hide(); //隐藏提示框
+              $(this).prev("li").removeClass("optnFocus"); //删除获取焦点时的样式
+              $("#sort").hide(); //隐藏提示箭头
+          })
+      })
+       </script> 
+</head>
+<body>
+     <ul>
+        <li class="menu">
+            <div>
+                 <img alt="" src="Images/icon.gif" />
+                 <span>电脑数码类产品</span>
+            </div>
+            <ul class="content">
+               <li class="optn"><a href="#">笔记本</a></li>
+               <ul class="tip">
+                   <li><a href="#">笔记本1</a></li>
+                   <li><a href="#">笔记本2</a></li>
+                   <li><a href="#">笔记本3</a></li>
+                   <li><a href="#">笔记本4</a></li>
+                   <li><a href="#">笔记本5</a></li>
+               </ul>
+               <li class="optn"><a href="#">移动硬盘</a></li>
+               <ul class="tip">
+                   <li><a href="#">移动硬盘1</a></li>
+                   <li><a href="#">移动硬盘2</a></li>
+                   <li><a href="#">移动硬盘3</a></li>
+                   <li><a href="#">移动硬盘4</a></li>
+                   <li><a href="#">移动硬盘5</a></li>
+               </ul>
+               <li class="optn"><a href="#">电脑软件</a></li>
+               <ul class="tip">
+                   <li><a href="#">电脑软件1</a></li>
+                   <li><a href="#">电脑软件2</a></li>
+                   <li><a href="#">电脑软件3</a></li>
+                   <li><a href="#">电脑软件4</a></li>
+                   <li><a href="#">电脑软件5</a></li>
+               </ul>
+               <li class="optn"><a href="#">数码产品</a></li>
+               <ul class="tip">
+                   <li><a href="#">数码产品1</a></li>
+                   <li><a href="#">数码产品2</a></li>
+                   <li><a href="#">数码产品3</a></li>
+                   <li><a href="#">数码产品4</a></li>
+                   <li><a href="#">数码产品5</a></li>
+               </ul>
+            </ul>
+            <img id="sort" src="Images/sort.gif" alt=""/>
+        </li>
+     </ul>
+</body>
+</html>

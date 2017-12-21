@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery 遍历JSON 数据</title>
+    <script src="JScript/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:13px}
+           .iframe{width:260px;border:solid 1px #666}
+           .iframe .title{padding:5px;background-color:#eee}
+           .iframe .content{padding:8px;font-size:12px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        var objData = {
+            member: [{
+                grade: "一年级",
+                students: {
+                    name: ["刘小芳", "李大明"]
+                }
+            }, {
+                grade: "二年级",
+                students: {
+                    name: ["陈优", "王小海", "朱红"]
+                }
+            }, {
+                grade: "三年级",
+                students: {
+                    name: ["张妍", "蔡霞"]
+                }
+               }]
+           };
+           function add_Grade() {
+               var objmember = objData.member;
+               var strHTML_0 = ""; //初始化保存内容变量
+               $.each(objmember, function(index) {
+                   strHTML_0 += '<a href="javascript:" onclick="lnk_Click(' + index + ')">'
+                   + objmember[index].grade
+                   + '</a>&nbsp;&nbsp;';
+               });
+               $(".title").html("年级优秀学生：" + strHTML_0);
+           };
+           function lnk_Click(i) {
+               var objstudent = objData.member[i].students.name;
+               var strHTML_1 = ""; //初始化保存内容变量
+               $.each(objstudent, function(index) {
+                   strHTML_1 += '&nbsp;' + objstudent[index] + '&nbsp;';
+               });
+               $("#Tip").html(strHTML_1);
+           };
+           $(function() {
+               add_Grade();
+               lnk_Click(0)
+           });
+    </script>
+</head>
+<body>
+   <div class="iframe">
+         <div class="title"></div>
+         <div class="content">
+              <div id="Tip"></div>
+         </div>
+    </div>
+</body>
+</html>

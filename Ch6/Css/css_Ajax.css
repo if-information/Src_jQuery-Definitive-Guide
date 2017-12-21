@@ -1,0 +1,108 @@
+﻿body{font-size:13px}
+a
+{
+	text-decoration:none
+}
+/*外框样式*/
+.divFrame
+{
+	width:572px;
+	border:solid 1px #666;
+	background-color:#fafcff
+}
+/*外框中主题样式*/
+.divFrame .divTitle
+{
+	padding:5px;
+	background-color:#eee
+}
+.divFrame .divTitle span
+{
+	padding:2px;
+	padding-top:5px;
+	font-family:黑体;
+	font-size:14px
+}
+/*外框中内容样式*/
+.divFrame .divContent
+{
+	padding:8px
+}
+.divFrame .divContent .clsShow
+{
+	border-bottom:dashed 1px #ccc;
+	padding:3px;
+	margin:5px;
+	line-height:2.0em
+}
+.divFrame .divContent .clsShow .ShowTitle
+{
+	padding-left:5px;
+	font-size:12px;
+	color:#555
+}
+.divFrame .divContent .clsShow .ShowContent
+{
+	padding-left:5px;
+	font-size:14px
+}
+.divFrame .divContent .clsShow .ShowBottom
+{
+	text-align:right;
+	font-size:12px;
+	color:#555
+}     
+/*外框中提交点评内容样式*/
+.divFrame .divSubmit
+{
+	padding:20px
+}
+.divFrame .divSubmit .SubTitle
+{
+	padding-bottom:10px;
+	font-weight:bold
+}
+.divFrame .divSubmit .SubContent
+{
+	width:532px
+}
+.divFrame .divSubmit .SubContent textarea
+{
+	width:525px
+}
+.divFrame .divSubmit .SubContent .SubBtn
+{
+	padding-top:10px;
+	padding-bottom:12px;
+	font-size:12px;
+	color:#555;
+	font-weight:bold
+}
+/*侦察请求状态样式*/
+.clsTip
+{
+	position:absolute;
+    width:160px;
+    text-align:center;
+    font-size:13px;
+    border:solid 1px #cc3300;
+    padding:2px;
+    margin-bottom:5px;
+    background-color:#ffe0a3
+ }
+ /*文本框样式*/
+ .txt
+ {
+ 	border:#666 1px solid;
+ 	padding:2px;
+ 	width:100px;
+ 	margin-right:3px
+ }
+ /*按钮样式*/
+.btn 
+{
+	border:#666 1px solid;
+	padding:2px;
+	width:65px;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8)
+ }

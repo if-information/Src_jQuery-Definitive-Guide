@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>替换元素节点</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           span{font-weight:bold}
+           p{background-color:#eee;padding:5px;width:200px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Span1").replaceWith("<span title='replaceWith'>陶国荣</span>");
+            $("<span title='replaceAll'>tao_guo_rong@163.com</span>").replaceAll("#Span2");
+        })
+    </script>
+</head>
+<body>
+    <p>姓名：<span id="Span1"></span></p>
+    <p>邮箱：<span id="Span2"></span></p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用replace和replaceWith()方法替换内容</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+            body{font-size:13px}
+			p{border:1px solid #666;width:280px;padding:8px; line-height:1.7em; font-size:13px}
+			.spn{padding-left:20px}
+			.focus{ background-color:#ccc;color:#fff}
+           .txt{border:#666 1px solid;padding:3px}
+           .btn{border:#666 1px solid;padding:2px;width:60px;
+                filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+		</style>
+    <script type="text/javascript">
+        $(function() {
+            var search = {
+                searchstr: function() {
+                    search.clearstr; 
+                    var searchText = $('#txtSearch').val(); 
+                    var regExp = new RegExp(searchText, 'g'); 
+                    if (searchText != "") {
+                        $('p').each(function()
+                        {
+                            var newHTML = $(this).html().replace(regExp, '<span class="focus">' + searchText + '</span>'); 
+                            $(this).html(newHTML); 
+                        });
+                    }
+                },
+                clearstr: function() {
+                    $('p').each(function()
+                    {
+                        $(this).find('.focus').each(function()
+                        {
+                            $(this).replaceWith($(this).html());
+                        });
+                    });
+                }
+            }
+            $('#btnSearch').bind("click", search.searchstr);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <input id="txtSearch" type="text" class="txt"  />
+        <input id="btnSearch" type="button" class="btn" value="查询" />
+    </div>
+    <p>
+        <span class="spn"></span>jQuery发布于2006年，在后续的版本升级中，广大的开发者被其简洁的代码、强悍的功能、优雅的展现、强大的兼容所折服，不断有人加入其阵营，而恰在那年，也深深吸引了我的眼光，从此深入其中。<br />
+        <span class="spn"></span>为什么会有如此多的人钟爱jQuery，与其超大的功能是分不开的，目前的Web项目开发，不仅仅是基于功能上的考虑，而更注重于用户使用体验与页面静态优化，这是一个理性的回归，也是技术发展的必然趋势，而jQuery恰恰是实现这一趋势的坚实利刃，并且可以在最大程度上满足各类语言开发Web页面的使用。
+    </p>		
+</body>
+</html>

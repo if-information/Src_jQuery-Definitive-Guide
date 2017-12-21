@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用$.support检测浏览器的信息</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{margin:5px;padding:10px;border:solid 1px #666;
+               background-color:#eee;width:300px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var list = $.support;
+            var strTmp = "";
+            var i = 0;
+            //遍历各项检测特征
+            for (key in list) {
+                i++;
+                strTmp += i + '.' + key + '=' + list[key] + '</br>';
+            }
+            //将检测完的结果显示在页面中
+            $("#divTip").html(strTmp);
+        });
+    </script>
+</head>
+<body>
+<div id="divTip"></div>
+</body>
+</html>

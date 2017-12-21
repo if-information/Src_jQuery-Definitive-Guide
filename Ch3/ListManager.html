@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>数据管理</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px} 
+           table{width:360px;border-collapse:collapse}
+           table tr th,td{border:solid 1px #666;text-align:center}
+           table tr td img{border:solid 1px #ccc;padding:3px;width:42px;height:60px;cursor:hand}
+           table tr td span{float:left;padding-left:12px;}
+           table tr th{background-color:#ccc;height:32px}
+           .clsImg{position:absolute;border:solid 1px #ccc;padding:3px;width:85px;height:120px; background-color:#eee;display:none}
+           .btn {border:#666 1px solid;padding:2px;width:50px;
+                 filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript" >
+        $(function() {
+        $("table tr:nth-child(odd)").css("background-color", "#eee"); //隔行变色
+        
+            /**全选复选框单击事件**/
+            $("#chkAll").click(function() {
+                if (this.checked) {//如果自己被选中
+                    $("table tr td input[type=checkbox]").attr("checked", true);
+                }
+                else {//如果自己没有被选中
+                    $("table tr td input[type=checkbox]").attr("checked", false);
+                }
+            })
+            
+            /**删除按钮单击事件**/
+            $("#btnDel").click(function() {
+                var intL = $("table tr td input:checked:not('#chkAll')").length; //获取除全选复选框外的所有选中项
+                if (intL != 0) {//如果有选中项
+                    $("table tr td input[type=checkbox]:not('#chkAll')").each(function(index) {//遍历除全选复选框外的行
+                        if (this.checked) {//如果选中
+                            $("table tr[id=" + this.value + "]").remove(); //获取选中的值，并删除该值所在的行
+                        }
+                    })
+                }
+            })
+
+            /**小图片鼠标移动事件**/
+            var x = 5; var y = 15;//初始化提示图片位置
+            $("table tr td img").mousemove(function(e) {
+                $("#imgTip")
+                .attr("src", this.src)//设置提示图片scr属性
+                .css({ "top": (e.pageY + y) + "px", "left": (e.pageX + x) + "px" })//设置提示图片的位置
+                .show(3000);//显示图片
+            })
+            
+            /**小图片鼠标移出事件**/
+            $("table tr td img").mouseout(function() {
+                $("#imgTip").hide();//隐藏图片
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+           <th>选项</th>
+           <th>编号</th>
+           <th>封面</th>
+           <th>购书人</th>
+           <th>性别</th>
+           <th>购书价</th>
+        </tr>
+        <tr id="0">
+           <td><input id="Checkbox1" type="checkbox" value="0"/></td>
+           <td>1001</td>
+           <td><img src="Images/img03.jpg" alt="" /></td>
+           <td>李小明</td>
+           <td>男</td>
+           <td>35.60 元</td>
+        </tr>
+        <tr id="1">
+           <td><input id="Checkbox2" type="checkbox" value="1"/></td>
+           <td>1002</td>
+           <td><img src="Images/img04.jpg" alt="" /></td>
+           <td>刘明明</td>
+           <td>女</td>
+           <td>37.80 元</td>
+        </tr>
+        <tr id="2">
+           <td><input id="Checkbox3" type="checkbox" value="2"/></td>
+           <td>1003</td>
+           <td><img src="Images/img08.jpg" alt="" /></td>
+           <td>张小星</td>
+           <td>女</td>
+           <td>45.60 元</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+           <td style="text-align:left;height:28px">
+               <span><input id="chkAll" type="checkbox" />全选</span>
+               <span><input id="btnDel" type="button" value="删除" class="btn" /></span>
+           </td>
+        </tr>
+     </table>
+     <img id="imgTip" class="clsImg" src="Images/img03.gif"/>
+</body>
+</html>

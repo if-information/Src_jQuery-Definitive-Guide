@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用jQuery层次选择器</title>
+    <script language="javascript" type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+           body{font-size:12px;text-align:center}
+           div,span{float:left;border:solid 1px #ccc;margin:8px;display:none}
+           .clsFraA{width:65px;height:65px}
+           .clsFraP{width:45px;height:45px;background-color:#eee}
+           .clsFraC{width:25px;height:25px;background-color:#ddd}
+    </style>
+    <script type="text/javascript">
+            $(function(){ //匹配后代元素
+              $("#divMid").css("display","block");
+              $("div span").css("display","block");
+            })
+            $(function(){ //匹配子元素
+              $("#divMid").css("display","block");
+              $("div>span").css("display","block");
+            })
+            $(function(){ //匹配后面元素
+              $("#divMid + div").css("display","block");
+              $("#divMid").next().css("display","block");
+            })
+            $(function(){ //匹配所有后面元素
+              $("#divMid ~ div").css("display","block");
+              $("#divMid").nextAll().css("display","block");
+            })
+            $(function(){ //匹配所有相邻元素
+              $("#divMid").siblings("div").css("display","block");
+            })
+    </script>
+</head>
+<body>
+    <div class="clsFraA">Left</div>
+    <div class="clsFraA" id="divMid">
+         <span class="clsFraP" id="Span1">
+              <span class="clsFraC" id="Span2"></span>
+         </span>
+    </div>
+    <div class="clsFraA">Right_1</div>
+    <div class="clsFraA">Right_2</div>
+</body>
+</html>

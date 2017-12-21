@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自定义选择器</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Plugs/11-9.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+        div
+        {
+            width: 260px;
+            padding-left: 10px;
+            font-size: 13px;
+            height: 23px;
+            line-height: 23px;
+            background-color: #eee;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            for (var i = 0; i < 10; i++) {
+                $("<div>" + i + "</div>").appendTo("body");
+            }
+            $("div:between(3-6)").css({ "background": "#555", "color": "#fff" });
+        })
+        </script>
+</head>
+<body>
+</body>
+</html>

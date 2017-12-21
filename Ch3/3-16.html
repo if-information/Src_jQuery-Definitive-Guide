@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>包裹元素节点</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           p{background-color:#eee;padding:5px;width:200px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("p").wrap("<b></b>");//所有段落标记字体加粗
+            $("span").wrapInner("<i></i>");//所有段落中的span标记斜体
+        })
+    </script>
+</head>
+<body>
+    <p>最喜爱的体育运动：<span>羽毛球</span></p>
+    <p>最爱看哪类型图书：<span>网络、技术</span></p>
+</body>
+</html>

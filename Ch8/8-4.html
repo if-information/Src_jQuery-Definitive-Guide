@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>autocomplete插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-8-4/jquery.autocomplete.js">
+    </script>
+    <link rel="stylesheet" type="text/css" 
+            href="Css-8-4/jquery.autocomplete.css" />
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:8px;line-height:1.6em}
+           .divFrame .divBtn,#divData{padding-bottom:8px;padding-left:8px}
+           .txt{border:#666 1px solid;padding:2px;width:150px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;margin-bottom:3px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var arrUserName = ["张三", "王小五", "张才子",
+            "李四", "张大三", "李大四", "王五", "刘明",
+            "李小四", "刘促明", "李渊", "张小三", "王小明"];
+            $("#txtSearch").autocomplete(arrUserName, {
+                minChars: 0, //双击空白文本框时显示全部提示数据
+                formatItem: function(data, i, total) {
+                return "<I>" + data[0] + "</I>"; //改变匹配数据显示的格式
+                },
+                formatMatch: function(data, i, total) {
+                    return data[0];
+                },
+                formatResult: function(data) {
+                    return data[0];
+                }
+            }).result(SearchCallback); //选中匹配数据中的某项数据时，调用插件的result()方法
+            //自定义返回匹配结果函数
+            function SearchCallback(event, data, formatted) {
+                $("#divData").html("您的选择是：" + (!data ? "空" : formatted));
+            }
+            //点击"查一下"按钮后，触发插件的search()方法
+            $("#btnSearch").click(function() {
+                $("#txtSearch").search();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+         <div class="divTitle">
+              搜索用户
+         </div>
+         <div class="divContent">
+              <span style="padding:0 5px 0 10px"><a href="#">新闻</a></span>
+              <span style="padding:0 5px 0 5px"><b>用户</b></span>
+              <div>
+                  <input type="text" id="txtSearch" class="txt" />
+                  <input type="button" id="btnSearch" value="查一下" class="btn" />
+              </div>
+         </div>
+         <div id="divData"></div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Info>
+  <User id="1">
+    <name>陶国荣</name>
+    <sex>男</sex>
+    <email>tao_guo_rong@163.com</email>
+  </User>
+
+  <User id="2">
+    <name>李建洲</name>
+    <sex>女</sex>
+    <email>xiaoli@163.com</email>
+  </User>
+</Info>

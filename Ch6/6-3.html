@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>getScript函数获取数据</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee}
+           .divFrame .divContent{padding:8px}
+           .divFrame .divContent .clsShow{font-size:14px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Button1").click(function() { //按钮单击事件
+                //打开已获取返回数据的文件
+                $.getScript("UserInfo.js");
+            })
+        })
+    </script>
+</head>
+<body>
+   <div class="divFrame">
+         <div class="divTitle">
+              <input id="Button1" type="button" 
+                     class="btn" value="获取数据" />
+         </div>
+         <div class="divContent">
+              <div id="divTip"></div>
+         </div>
+    </div>
+</body>
+</html>

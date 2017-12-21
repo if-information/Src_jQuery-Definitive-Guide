@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>事件中的target方法优化冒泡现象</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           div{line-height:1.8em}
+           .txt{border:#666 1px solid;padding:2px;width:80px;margin-right:3px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#frame").bind("click", function(e) {
+                $objChild = $(e.target);//捕捉触发事件的元素
+                $objChild.addClass("txt");//增加子元素的样式
+            })
+        });
+    </script>
+</head>
+<body>
+    <form id="form1">
+        <fieldset id="frame" style="width:200px">
+          <legend>输入信息</legend>
+          <div>姓名：<input id="Text1" type="text"/></div>
+          <div>性别：<input id="Text2" type="text" /></div>
+          <div>年龄：<input id="Text3" type="text" /></div>
+        </fieldset>
+    </form>
+</body>
+</html>

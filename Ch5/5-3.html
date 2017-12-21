@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>toggle()方法</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:180px}
+           .divFrame .divMenu{float:left}
+           .divFrame .divContent{float:right}
+           .divFrame .divContent img{display:none}
+           .btn {border:#666 1px solid;padding:2px;width:80px;margin-bottom:5px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("input:eq(0)").click(function() { //无参数方法
+                $("img").toggle();
+            })
+            $("input:eq(1)").click(function() { //根据参数switch显示
+                var intI = 0;
+                var blnA = intI > 1; //获取逻辑值
+                $("img").toggle(blnA);
+            })
+            $("input:eq(2)").click(function() { //动画方式显示
+                $("img").toggle(3000, function() {
+                    $(this) //以动画方式显示,并执行回调函数
+                    .css({ "border": "solid 1px #ccc", "padding": "2px" });
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+         <div class="divMenu">
+              <input id="Button1" type="button" value="无参数" class="btn" /><br />
+              <input id="Button2" type="button" value="逻辑显示" class="btn" /><br />
+              <input id="Button3" type="button" value="动画显示" class="btn" />
+         </div>
+         <div class="divContent">
+              <img src="Images/img03.jpg" alt="" />
+         </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>类别切换</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           .clsImg{border:solid 1px #666;padding:3px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("img").click(function() {
+            $(this).toggleClass("clsImg"); //切换样式类别
+            })
+        })
+    </script>
+</head>
+<body>
+     <img src="Images/logo.gif" alt="" title="jQuery" />
+</body>
+</html>

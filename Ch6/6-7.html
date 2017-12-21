@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>serialize()序列化表单</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:345px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;height:23px}
+           .divFrame .divTitle span{float:left;padding:2px;padding-top:5px;}
+           .divFrame .divContent{padding:8px}
+           .divFrame .divContent .clsShow{font-size:14px}
+           select,input{float:left}
+           .txt{border:#666 1px solid;padding:2px;width:80px;margin-right:3px}
+           .btn {border:#666 1px solid;padding:2px;width:50px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Button1").click(function() { //按钮单击事件
+                //打开文件，并通过回调函数返回服务器响应后的数据
+                $.post("User-Info.aspx",
+                $("#frmUserInfo").serialize(), //序列化表单数据
+                function(data) {
+                    $("#divTip")
+                    .empty() //先清空标记中的内容
+                    .html(data); //显示服务器返回的数据
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+  <form id="frmUserInfo">
+   <div class="divFrame">
+         <div class="divTitle">
+              <span>姓名：</span>
+              <input name="txtName" type="text" class="txt" />
+              <select name="selSex" style="height:22px;margin-right:3px">
+                 <option value="">选性别</option>
+                 <option value="男">男</option>
+                 <option value="女">女</option>
+              </select>
+              <input name="chkEmail" type="checkbox" value="1" style="padding-top:5px" /><span style="margin-right:10px">显示邮箱</span>
+              <input id="Button1" type="button" 
+                     class="btn" value="请求" />
+         </div>
+         <div class="divContent">
+              <div id="divTip"></div>
+         </div>
+    </div>
+  </form>
+</body>
+</html>

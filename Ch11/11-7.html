@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>限制文本输入框中字符的数量</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Plugs/11-7.js" 
+            type="text/javascript"></script>   
+    <style type="text/css">
+            body{font-size:13px}
+            .frame{width:260px}
+            .title{padding:5px 0px}
+            .txt{height:108px;width:252px;border:#666 1px solid;padding:3px}
+    </style>     
+    <script type="text/javascript">
+        $(function() {
+            $('#txtaMessage').maxLength(140, "divMaxNum"); ;
+        });
+    </script>
+</head>
+<body>
+    <div class="frame">
+        <div class="title">我要留言</div>
+        <textarea id="txtaMessage" class="txt"></textarea>
+        <div align="right" id="divMaxNum">140</div>
+    </div>
+</body>
+</html>

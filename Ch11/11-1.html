@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使元素在屏幕中居中</title>
+    <script src="Jscript/jquery-1.8.2.min.js" 
+            type="text/javascript"></script>
+    <script src="Plugs/11-1.js" 
+            type="text/javascript"></script>
+    <style type="text/css">
+        body{font-size: 13px;}
+        .frame{width: 276px; border: solid 1px #ccc; display:none;}
+        .frame .title{font-weight: bold; width: 260px; 
+                      padding: 8px; background-color: #eee}
+        .frame .content{padding: 15px 8px;}
+        .fl{float: left}
+        .fr{float: right}
+        .cls{clear: both}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            //弹出框元素调用插件中的center()方法
+            $(".frame").center().show(1000);
+            //设置点击关闭按钮时触发的动作
+            $(".title").find("img").bind("click", function() {
+                //以渐隐的方式隐藏弹出框
+                $(".frame").hide(1000);
+            });
+            //$(window).resize(function() { $(".frame").center(); })
+        });
+    </script>
+</head>
+<body>
+    <div class="frame">
+        <div class="title fl">
+            <div class="fl">
+                主题
+            </div>
+            <div class="fr">
+                <img src="Images/close.png" />
+            </div>
+        </div>
+        <div class="content cls">
+            内容
+        </div>
+    </div>
+</body>
+</html>

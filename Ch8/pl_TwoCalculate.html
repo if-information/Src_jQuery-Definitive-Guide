@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>编写一个类级别的插件</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Plugin/jquery.twoaddresult.js">
+    </script>
+    <style type="text/css">
+           body{font-size:12px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee;font-weight:bold}
+           .divFrame .divContent{padding:8px;line-height:1.6em}
+           .txt{border:#666 1px solid;padding:2px;width:150px;margin-right:3px;width:8px}
+           .btn {border:#666 1px solid;padding:2px;width:50px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#Button1").click(function() {
+                $("#Text3").val(
+                $.addNum($("#Text1").val(),
+                         $("#Text2").val()));
+            }); //调用自定义的插件计算两数之和
+            $("#Button2").click(function() {
+                $("#Text6").val(
+                $.subNum($("#Text4").val(),
+                       $("#Text5").val()));
+            }) //调用自定义的插件计算两数之差
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+         <div class="divTitle">
+              类级别的插件
+         </div>
+         <div class="divContent">两数相加：
+             <input id="Text1" type="text" class="txt" />
+             +
+             <input id="Text2" type="text" class="txt" />
+             =
+             <input id="Text3" type="text" class="txt" />
+             <input id="Button1" type="button" 
+                    value="等于" class="btn" />
+             <hr />两数相减：
+             <input id="Text4" type="text" class="txt" />
+             -&nbsp;
+             <input id="Text5" type="text" class="txt" />
+             =
+             <input id="Text6" type="text" class="txt" />
+             <input id="Button2" type="button" 
+                    value="等于" class="btn"/>
+         </div>
+     </div>
+    
+</body>
+</html>

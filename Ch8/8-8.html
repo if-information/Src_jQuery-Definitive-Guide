@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>图片切换插件Nivo Slider</title>
+    <link href="Css-8-8/nivo-slider.css" 
+          rel="stylesheet" type="text/css" />
+    <link href="Css-8-8/theme-default.css" 
+          rel="stylesheet" type="text/css" />   
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript"
+            src="Js-8-8/jquery.nivo.slider.js">
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#slider').nivoSlider({
+                effect: 'boxRandom', //图片随机切换效果
+                beforeChange: function() { }, //可编写图片切换之前回调函数
+                afterLoad: function() { }, //可编写图片加载之后回调函数
+                controlNavThumbs: true, //使用缩略图控制导航
+                manualAdvance: true //需要手动切换
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="theme-default">
+        <div id="slider" class="nivoSlider">
+            <a href="javascript:">
+               <img src="Pic-8-8/img01.jpg" alt="01" 
+                    data-thumb="Pic-8-8/img01.jpg" title="第1幅图片"/>
+               </a>
+            <a href="javascript:">
+               <img src="Pic-8-8/img02.jpg" alt="02" 
+                    data-thumb="Pic-8-8/img02.jpg" title="第2幅图片"/>
+            </a>
+            <a href="javascript:">
+               <img src="Pic-8-8/img03.jpg" alt="03"
+                    data-thumb="Pic-8-8/img03.jpg" title="第3幅图片"/>
+            </a>
+            <a href="javascript:">
+               <img src="Pic-8-8/img04.jpg" alt="04"
+                    data-thumb="Pic-8-8/img04.jpg" title="第4幅图片"/>
+            </a>
+            <a href="javascript:">
+               <img src="Pic-8-8/img05.jpg" alt="05"
+                    data-thumb="Pic-8-8/img05.jpg" title="第5幅图片"/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

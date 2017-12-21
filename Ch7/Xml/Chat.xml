@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<chat>
+  <message fId="1243242" sId="1234560">
+    <datetime>11:29:13</datetime>
+    <content>早上好啊</content>
+  </message>
+  <message fId="1234560" sId="1243242">
+    <datetime>11:39:10</datetime>
+    <content>你好！</content>
+  </message>
+  <message fId="1243242" sId="1234560">
+    <datetime>11:40:27</datetime>
+    <content>今天的天气很冷啊。</content>
+  </message>
+  <message fId="1243242" sId="1234560">
+    <datetime>11:41:44</datetime>
+    <content>你那边温度如何？</content>
+  </message>
+  <message fId="1234560" sId="1243242">
+    <datetime>11:42:45</datetime>
+    <content>我这边还行，20度左右。</content>
+  </message>
+</chat>

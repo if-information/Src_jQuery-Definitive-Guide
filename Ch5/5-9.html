@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>移动位置的动画</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{border:solid 1px #666;width:168px;text-align:center;}
+           .divFrame .divTitle{background-color:#eee;padding:5px 0px 5px 0px}
+           .divFrame .divContent{width:108px;height:52px;padding:5px 0px 5px 0px;margin:0px 30px 0px 30px;overflow:hidden}
+           .divFrame .divContent .divList{width:162px;position:absolute}
+           .divFrame .divContent .divList span{border:solid 1px #ccc;background-color:#eee;width:50px;height:50px;float:left;margin-right:2px}
+           .btn {border:#666 1px solid;padding:2px;width:60px;filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8)}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("input:eq(0)").click(function() { //左移按钮点击事件
+                //在3000毫秒内，以动画的形式向左移动52个像素
+                $(".divList").animate({ left: "-=52px" }, 3000);
+            })
+            $("input:eq(1)").click(function() { //右移按钮点击事件
+                //在3000毫秒内，以动画的形式向右移动52个像素
+                $(".divList").animate({ left: "+=52px" }, 3000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+         <div class="divTitle">
+              <input id="Button1" type="button" value="左移" class="btn" />&nbsp;
+              <input id="Button2" type="button" value="右移" class="btn" />
+         </div>
+         <div class="divContent">
+              <div class="divList">
+                   <span>1</span>
+                   <span>2</span>
+                   <span>3</span>
+              </div>
+         </div>
+    </div>
+</body>
+</html>

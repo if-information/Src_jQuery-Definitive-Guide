@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>删除元素</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           ul{width:200px}
+           ul li{ list-style:none;padding:0px;height:23px}
+           span{padding-left:20px}
+           .btn {border:#666 1px solid;padding:2px;width:60px;
+                 filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("ul li:first").css("font-weight", "bold");//设置首行
+            $("#Button1").click(function() {
+                $("ul li").remove("li[title=t]");//删除指定属性的元素
+                $("ul li:eq(1)").remove();//删除节点中第2个元素
+            })
+        })
+    </script>
+</head>
+<body>
+     <ul>
+         <li>学号</li>
+         <li title="t">1001</li>
+         <li>1002</li>
+         <li>1003</li>
+         <li style="text-align:center;padding-top:5px">
+                <input id="Button1" type="button" value="删除" class="btn" />
+         </li>
+     </ul>
+     
+</body>
+</html>

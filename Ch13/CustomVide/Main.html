@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>使用jQuery与HTML 5开发视频播放器</title>
+    <link href="Css/customvide.css" rel="stylesheet" type="text/css" />
+    <script src="Jscript/jquery-1.8.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="indexvideo">
+        <div>
+            <video id="video" src="Vide/6-test_1.mov">
+                   您的浏览器不支持video元素
+            </video>
+            <div id="tip"></div>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="indexnav">
+            <ul>
+                <li><input id="btnSlow" type="button" class="btn-slow" title="慢放" /></li>
+                <li><input id="btnPlay" type="button" class="btn-play" title="播放"/></li>
+                <li><input id="btnQuick" type="button" class="btn-quick" title="快进"/></li>
+                <li><input id="btnReturn" type="button" class="btn-return" title="回放"/></li>
+                <li><input id="btnMax" type="button" class="btn-volume-max focus" title="音量"/></li>
+                <li><input id="rngVoice" type="range" class="btn-volume-rng" min="0" value="1" max="1" step="0.1" /></li>
+                <li><input id="btnMin" type="button" class="btn-volume-min" title="静音"/></li>
+                <li><input id="btnPic" type="button" class="btn-pic" title="截图"/></li>
+            </ul>
+        </div>
+    </div>
+    <script src="Jscript/customvide.js" type="text/javascript"></script>
+</body>
+</html>

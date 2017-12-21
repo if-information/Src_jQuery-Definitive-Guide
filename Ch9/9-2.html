@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用droppable插件实现对象的置放操作</title>
+    <script type="text/javascript" 
+            src="Jscript/jquery-1.8.2.min.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.core.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.widget.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-Pub/jquery.ui.mouse.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-9-1/jquery.ui.draggable.js">
+    </script>
+    <script type="text/javascript" 
+            src="Js-9-2/jquery.ui.droppable.js">
+    </script>
+    <style type="text/css">
+           body{font-size:13px}
+           #divFrame{width:400px}
+           .divLeft{float:left;border:solid 1px #666;width:100px}
+           .divRight{float:right;border:solid 1px #666;width:200px}
+           .divTitle{background-color:#ccc;padding:5px}
+           .divDrag{padding:5px;cursor:move}
+           .divGet{background-color:#eee}
+           #divCart div{padding:5px;height:85px;font-size:11px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            //以透明度0.35随意拖动
+            $(".divDrag").draggable({ opacity: 0.35 });
+            $("#divCart").droppable({
+                drop: function() {
+                    $(this)
+                .addClass("divGet") //改变购物车的CSS
+                .append($("<div></div>"))
+                .find("#divTip").remove(); //删除原有内容
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+     <div id="divFrame">
+         <div class="divLeft">
+              <div class="divTitle">产品</div>
+              <div class="divDrag">
+                  <img alt="" src="Images-9-2/img03.jpg" />
+              </div>
+             
+         </div>
+         <div class="divRight">
+              <div class="divTitle">购物车</div>
+              <div id="divCart">
+                  <div id="divTip">还没有产品</div>
+              </div>
+         </div>
+     
+     </div>
+</body>
+</html>

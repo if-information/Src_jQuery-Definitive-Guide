@@ -1,0 +1,41 @@
+﻿body {font-size:13px}
+/*图片外框样式*/
+.p_Lst {
+	position: relative;
+	float: left;
+	width: 90px;
+	height: 98px;
+	padding: 8px;
+	border: 1px solid #666;
+	margin: 10px 8px 20px 8px;
+}
+/*图片最近外框样式*/
+.p_Img {
+	width: 90px;
+	height: 90px;
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+/*图片信息样式*/
+.p_Alt {
+	display:none;
+}
+/*缩略图片中“点击放大”链接样式*/
+.p_Big {
+	display: block;
+	width: 90px;
+	height: 23px;
+	background: url(../Images/imgLarge.jpg);
+	cursor: pointer;
+}
+/*原始放大图片中“关闭”按钮样式*/
+.p_Cls {
+    position: absolute;
+	right: 10px;
+	bottom: 10px;
+	display: block;
+	width: 20px;
+	height: 21px;
+	background: url(../Images/imgClose.jpg);
+	text-indent: -9999px;
+}

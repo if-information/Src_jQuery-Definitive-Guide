@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>传统的JavaScript方法实现Ajax功能</title>
+    <style type="text/css">
+           body{font-size:13px}
+           .divFrame{width:260px;border:solid 1px #666}
+           .divFrame .divTitle{padding:5px;background-color:#eee}
+           .divFrame .divContent{padding:8px}
+           .divFrame .divContent .clsShow{font-size:14px}
+           .btn {border:#666 1px solid;padding:2px;width:80px;
+           filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#ECE9D8);}
+    </style>
+    <script type="text/javascript">
+        var objXmlHttp = null; //声明一个空的XMLHTTP变量
+        function CreateXMLHTTP() {
+            //根据浏览器的不同，返回该变量的实体对象
+            if (window.ActiveXObject) {
+                objXmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                if (window.XMLHttpRequest) {
+                    objXmlHttp = new XMLHttpRequest();
+                }
+                else {
+                    alert("初始化XMLHTTP错误！");
+                }
+            }
+        }
+        function GetSendData() {
+            document.getElementById("divTip").innerHTML = "<img alt='' title='正在加载中...' src='Images/Loading.gif' />"; //初始化内容
+            var strSendUrl = "b.html?date="+Date(); //设置发送地址变量并赋初始值
+            CreateXMLHTTP(); //实例化XMLHttpRequest对象
+            objXmlHttp.open("GET", strSendUrl, true); //open方法初始化XMLHttpRequest
+            objXmlHttp.onreadystatechange = function() { //回调事件函数
+                if (objXmlHttp.readyState == 4) { //如果请求完成加载
+                    if (objXmlHttp.status == 200) { //如果响应已成功
+                        //显示获取的数据
+                        document.getElementById("divTip").innerHTML = objXmlHttp.responseText;
+                    }
+                }
+            }
+            objXmlHttp.send(null); //send发送设置的请求 
+        }
+    </script>
+</head>
+<body>
+  <div class="divFrame">
+         <div class="divTitle">
+              <input id="Button1" type="button" onclick="GetSendData()"
+                     class="btn" value="获取数据" />
+         </div>
+         <div class="divContent">
+              <div id="divTip"></div>
+         </div>
+    </div>
+</body>
+</html>
